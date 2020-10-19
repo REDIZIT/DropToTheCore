@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a018d334a8695654ab311fe01ef42cfd, type: 3}
+  m_Name: Dots 3 (2 flip)
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3198097651925680142, guid: c3366ed367d991442825dd83f64b38b2, type: 3}
+  startDepth: 0
+  endDepth: 0
+  chancePoints: 0.5
