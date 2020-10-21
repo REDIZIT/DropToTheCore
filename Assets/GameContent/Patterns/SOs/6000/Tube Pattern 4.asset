@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Tube Pattern 4
   m_EditorClassIdentifier: 
   prefab: {fileID: 7399333794369685826, guid: fa0c75383976b7a41b45c8d304698611, type: 3}
-  startDepth: 5000
+  startDepth: 6000
   endDepth: 0
   chancePoints: 1
