@@ -1334,6 +1334,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1439539846502085761}
     m_Modifications:
+    - target: {fileID: 3401201521951037928, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: platfromPosition
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401201521951037928, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: leftIsStartDirection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3401201521951037930, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
       propertyPath: m_Name
       value: MovingPlatform Killer
@@ -1382,9 +1390,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3401201523490702180, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401201523490702180, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401201523490702182, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3401201523490702183, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: -6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095082414538037312, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: size.x
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
@@ -1586,6 +1610,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1439539846502085761}
     m_Modifications:
+    - target: {fileID: 3401201521951037928, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: platfromPosition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3401201521951037930, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
       propertyPath: m_Name
       value: MovingPlatform Killer (1)
@@ -1634,9 +1662,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3401201523490702180, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401201523490702180, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401201523490702182, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3401201523490702183, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095082414538037312, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}
+      propertyPath: size.x
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a77e04e834a3f64d94556d6f5abd89a, type: 3}

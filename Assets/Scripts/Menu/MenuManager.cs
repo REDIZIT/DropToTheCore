@@ -1,15 +1,17 @@
 using InGame.Audio;
+using InGame.SceneLoading;
 using InGame.Settings;
 using InGame.UI.Custom;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace InGame.Menu
 {
-    public class MenuController : MonoBehaviour
+    public class MenuManager : MonoBehaviour
     {
         public Volume postProcessingVolume;
 
@@ -17,6 +19,7 @@ namespace InGame.Menu
         public Slider musicVolumeSlider;
         public CustomToggle bloomToggle;
         public CustomToggle highScaleToggle;
+
 
         private void Start()
         {

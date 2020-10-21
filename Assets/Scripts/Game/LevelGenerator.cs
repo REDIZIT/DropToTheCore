@@ -20,15 +20,27 @@ namespace InGame.Level
         private List<GameObject> toDestroyAfterDeath = new List<GameObject>();
         private List<GameObject> spawnedCheckpoints = new List<GameObject>();
 
-        private const float CHECKPOINTS_DISTANCE = 500;
+        private AreaSO prevPattern;
+
+        public const float CHECKPOINTS_DISTANCE = 500;
 
 
         private void Update()
+        {
+            GenerationLoop();
+        }
+        public void GenerationLoop(bool isInit = false)
         {
             if (-player.transform.position.y >= lastSpawnedDepth - 50)
             {
                 SpawnNextArea();
                 SpawnBonus();
+
+                if (isInit)
+                {
+                    GenerationLoop(isInit);
+                    return;
+                }
             }
 
 
@@ -53,10 +65,13 @@ namespace InGame.Level
         }
 
 
-
         public float GetNextCheckpointDepth(float currentDepth)
         {
             return Mathf.CeilToInt(currentDepth / CHECKPOINTS_DISTANCE) * CHECKPOINTS_DISTANCE;
+        }
+        public float GetCurrentCheckpointDepth(float currentDepth)
+        {
+            return Mathf.FloorToInt(currentDepth / CHECKPOINTS_DISTANCE) * CHECKPOINTS_DISTANCE;
         }
         public void ClearSpawnedAreas(CheckpointController checkpoint)
         {
@@ -85,6 +100,13 @@ namespace InGame.Level
             float distanceToCheckpoint = GetNextCheckpointDepth(lastSpawnedDepth) - lastSpawnedDepth;
 
             AreaSO area = GetRandomArea();
+            while(area == prevPattern)
+            {
+                area = GetRandomArea();
+                if (Time.deltaTime >= 1) throw new System.TimeoutException("SpawnNextArea get random area timeout");
+            }
+            prevPattern = area;
+
             float areaHeight = GetAreaHeight(area.prefab.transform);
 
             if (distanceToCheckpoint <= areaHeight + areasSpacing)
@@ -167,9 +189,27 @@ namespace InGame.Level
         }
         private float GetAreaHeight(Transform prefab)
         {
-            float minY = prefab.transform.Cast<Transform>().OrderBy(t => t.position.y).First().localPosition.y;
+            //float minY = prefab.transform.Cast<Transform>().OrderBy(t => t.position.y).First().localPosition.y;
 
-            return -minY;
+            //return -minY;
+
+            Bounds bounds;
+            Renderer[] renderers = prefab.GetComponentsInChildren<Renderer>();
+
+            if (renderers.Length > 0)
+            {
+                bounds = renderers[0].bounds;
+                for (int i = 1, ni = renderers.Length; i < ni; i++)
+                {
+                    bounds.Encapsulate(renderers[i].bounds);
+                }
+            }
+            else
+            {
+                bounds = new Bounds();
+            }
+
+            return bounds.size.y;
         }
     }
 }

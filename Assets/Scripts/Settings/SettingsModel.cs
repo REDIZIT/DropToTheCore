@@ -5,6 +5,7 @@ namespace InGame.Settings
         public float MusicVolume { get; set; } = 0.8f;
         public bool IsBloomEnabled { get; set; } = true;
         public bool UseHighRenderScale { get; set; } = true;
+        public bool IsTutorialPassed { get; set; } = false;
 
 
 

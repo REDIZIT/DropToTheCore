@@ -17,26 +17,26 @@ namespace InGame.Audio
         {
             OVERRIDE_MUSIC_FOLDER = Application.persistentDataPath + "/Data/Music";
 
-            //if (instance == null)
-            //{
-            //    instance = this;
-            //    asource = GetComponent<AudioSource>();
-            //    DontDestroyOnLoad(gameObject);
+            if (instance == null)
+            {
+                instance = this;
+                asource = GetComponent<AudioSource>();
+                DontDestroyOnLoad(gameObject);
 
-            //    if (Directory.Exists(OVERRIDE_MUSIC_FOLDER))
-            //    {
-            //        string[] files = Directory.GetFiles(OVERRIDE_MUSIC_FOLDER);
-            //        if (files.Length > 0)
-            //        {
-            //            asource.clip = LoadAudio(files[0]);
-            //            asource.Play();
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    Destroy(gameObject);
-            //}
+                if (Directory.Exists(OVERRIDE_MUSIC_FOLDER))
+                {
+                    string[] files = Directory.GetFiles(OVERRIDE_MUSIC_FOLDER);
+                    if (files.Length > 0)
+                    {
+                        asource.clip = LoadAudio(files[0]);
+                        asource.Play();
+                    }
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         [System.Obsolete]

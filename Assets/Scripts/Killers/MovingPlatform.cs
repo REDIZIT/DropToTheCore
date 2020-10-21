@@ -8,7 +8,11 @@ namespace InGame.Level
         public float speed;
         public bool leftIsStartDirection;
 
+        [Range(-1, 1)]
+        public float platfromPosition;
+
         private float currentTarget, currentSpeed;
+        private float platformAvailableWidth;
 
         public Transform platform;
         public Transform leftEdge, rightEdge, slider;
@@ -28,6 +32,10 @@ namespace InGame.Level
 
             
             sliderSprite.size = new Vector2(width, .3f);
+
+            platformAvailableWidth = width - platform.GetComponent<SizeablePlatform>().size.x;
+
+            Update();
         }
         private void Start()
         {
@@ -41,31 +49,28 @@ namespace InGame.Level
             currentSpeed = speed;
             currentTarget = width / 2f - platform.GetComponent<SpriteRenderer>().size.x / 2f;
             currentTarget *= leftIsStartDirection ? -1 : 1;
+
+            platformAvailableWidth = width - platform.GetComponent<SizeablePlatform>().size.x;
         }
 
         private void Update()
         {
             if (platform == null) return;
 
+            
+            platform.localPosition = new Vector3(platfromPosition * platformAvailableWidth / 2f, 0);
 
-            platform.localPosition += new Vector3(currentSpeed * Time.deltaTime, 0);
 
-            if (currentTarget > 0)
+            if (Application.isEditor && !Application.isPlaying) return;
+
+
+            platfromPosition += currentSpeed * Time.deltaTime * 3f / platformAvailableWidth;
+
+            if ((platfromPosition >= 1 && currentTarget >= 0) || (platfromPosition <= -1 && currentTarget < 0))
             {
-                if (platform.localPosition.x >= currentTarget)
-                {
-                    currentTarget = -currentTarget;
-                }
-            }
-            else
-            {
-                if (currentTarget >= platform.localPosition.x)
-                {
-                    currentTarget = -currentTarget;
-                }
+                currentTarget = -currentTarget;
             }
             
-
             currentSpeed = speed * (currentTarget > 0 ? 1 : -1);
         }
     }

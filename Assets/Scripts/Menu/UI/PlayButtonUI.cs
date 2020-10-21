@@ -1,6 +1,6 @@
-using System.Collections;
+using InGame.SceneLoading;
+using InGame.Settings;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace InGame.Menu
 {
@@ -8,24 +8,16 @@ namespace InGame.Menu
     {
         public Animator animator;
         
-        public void OnClick()
+        public void OnClick(string animationName)
         {
-            StartCoroutine(IELoadGame());
-        }
-
-        private IEnumerator IELoadGame()
-        {
-            yield return new WaitForSeconds(0.5f);
-
-            AsyncOperation op = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
-            op.allowSceneActivation = false;
-
-            while(op.progress < 0.9f)
+            if (!SettingsManager.Settings.IsTutorialPassed)
             {
-                yield return null;
+                SceneLoader.LoadTutorial();
             }
-
-            op.allowSceneActivation = true;
+            else
+            {
+                animator.Play(animationName);
+            }
         }
     }
 }

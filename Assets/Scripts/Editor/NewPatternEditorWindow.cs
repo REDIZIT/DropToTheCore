@@ -1,4 +1,5 @@
 using InGame.Level;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -184,7 +185,11 @@ namespace InEditor.GameTools
             string subFolder = selectedArea.startDepth == 0 ? "" : selectedArea.startDepth.ToString();
             string correctSOPath = "Assets/GameContent/Patterns/SOs/" + subFolder + "/" + selectedArea.name + ".asset";
             string correctPrefabPath = "Assets/GameContent/Patterns/Prefabs/" + subFolder + "/" + selectedArea.prefab.name + ".prefab";
-            
+
+
+
+            if (!AssetDatabase.IsValidFolder(Path.GetDirectoryName(correctSOPath))) AssetDatabase.CreateFolder("Assets/GameContent/Patterns/SOs", new FileInfo(correctSOPath).Directory.Name);
+            if (!AssetDatabase.IsValidFolder(Path.GetDirectoryName(correctPrefabPath))) AssetDatabase.CreateFolder("Assets/GameContent/Patterns/Prefabs", new FileInfo(correctPrefabPath).Directory.Name);
 
 
             if (actualSOPath != correctSOPath) AssetDatabase.MoveAsset(actualSOPath, correctSOPath);

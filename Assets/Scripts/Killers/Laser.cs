@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace InGame.Level
 {
+    [ExecuteInEditMode]
     public class Laser : MonoBehaviour
     {
         public SizeablePlatform beam, beamSemiAlpha;
@@ -35,8 +36,8 @@ namespace InGame.Level
             sh.scale = new Vector3(beam.size.x * 2f, 1f, 1f);
 
 
-            beam.Resize();
-            beamSemiAlpha.Resize();
+            beam?.Resize();
+            if(beamSemiAlpha != null && beamSemiAlpha.transform != null) beamSemiAlpha.Resize();
         }
     }
 }

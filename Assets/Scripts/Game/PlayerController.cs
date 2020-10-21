@@ -1,6 +1,6 @@
 using InGame.Game;
-using InGame.Game.Bonuses;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace InGame
 {
@@ -10,6 +10,7 @@ namespace InGame
 
         public float jumpPower;
         public float strafePower;
+        public bool canMove = true;
 
         public TrailRenderer trail;
 
@@ -36,9 +37,9 @@ namespace InGame
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
-                if (GameManager.instance.isAlive)
+                if ((GameManager.instance == null || GameManager.instance.isAlive) && canMove)
                 {
                     Jump();
                 }
@@ -87,6 +88,12 @@ namespace InGame
 
         private void Die()
         {
+            if (GameManager.instance == null)
+            {
+                transform.position = new Vector3(0, 0);
+                trail.Clear();
+                return;
+            }
             if (!GameManager.instance.isAlive) return;
             if (shield.currentInvulnerabilityTime > 0) return;
 

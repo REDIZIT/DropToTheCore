@@ -1,4 +1,5 @@
 using InGame.Level;
+using InGame.SceneLoading;
 using InGame.Secrets;
 using InGame.Settings;
 using UnityEngine;
@@ -23,6 +24,9 @@ namespace InGame.Game
         public Text deathScreenDepthText, depthRecordText;
         public GameObject newRecordText;
 
+        [Header("Pause screen")]
+        public Animator pauseScreen;
+
         public float depth;
 
         public Text depthText;
@@ -40,6 +44,11 @@ namespace InGame.Game
         {
             instance = this;
             postProcessing.profile.components.Find(c => c.GetType() == typeof(Bloom)).active = SettingsManager.Settings.IsBloomEnabled;
+
+            depth = generator.GetCurrentCheckpointDepth(SceneLoader.LoadOnDepth) + 5;
+            player.transform.position = new Vector3(0, -depth);
+
+            generator.GenerationLoop(true);
         }
         private void Update()
         {
@@ -64,11 +73,25 @@ namespace InGame.Game
             player.Relive();
             generator.ClearSpawnedAreas(currentCheckpoint);
         }
+        public void Pause()
+        {
+            Time.timeScale = 0;
+            pauseScreen.gameObject.SetActive(true);
+            pauseScreen.Play("ShowPauseScreen");
+        }
+        public void Unpause()
+        {
+            Time.timeScale = 1;
+            pauseScreen.gameObject.SetActive(false);
+        }
         public void GoToMenu()
         {
             Time.timeScale = 1;
             SceneManager.LoadScene("Menu");
         }
+
+
+
 
         public void DeadActions()
         {
@@ -92,6 +115,9 @@ namespace InGame.Game
                 newRecordText.SetActive(false);
             }
         }
+
+
+
 
         public void SetCheckpoint(CheckpointController checkpoint)
         {
