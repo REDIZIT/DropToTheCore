@@ -41,7 +41,7 @@ namespace InGame.Secrets
                 }
                 catch
                 {
-                    Debug.LogError("А кто тут такой мамкин хацкер? :D");
+                    //Debug.LogError("А кто тут такой мамкин хацкер? :D");
                     File.Delete(filepath);
                     _secrets = new SecretsModel();
                 }
