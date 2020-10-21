@@ -4063,8 +4063,8 @@ MonoBehaviour:
   steps:
   - {fileID: 1831018212}
   - {fileID: 1584935258}
-  - {fileID: 530047382}
   backgroundDarkner: {fileID: 1113528422}
+  postProcessing: {fileID: 519420033}
   isTutorialRunning: 0
 --- !u!1 &1723872858
 GameObject:

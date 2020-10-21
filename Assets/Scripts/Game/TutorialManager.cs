@@ -1,7 +1,10 @@
 using InGame.SceneLoading;
+using InGame.Settings;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace InGame.Tutorial
@@ -13,11 +16,13 @@ namespace InGame.Tutorial
         public List<GameObject> steps;
         public Image backgroundDarkner;
 
+        public Volume postProcessing;
 
         public bool isTutorialRunning;
 
         private void Start()
         {
+            postProcessing.profile.components.Find(c => c.GetType() == typeof(Bloom)).active = SettingsManager.Settings.IsBloomEnabled;
             StartTutorial();
         }
         public void StartTutorial()
@@ -66,7 +71,7 @@ namespace InGame.Tutorial
             steps[stepNumber].SetActive(false);
             backgroundDarkner.enabled = false;
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
         }
     }
 }
