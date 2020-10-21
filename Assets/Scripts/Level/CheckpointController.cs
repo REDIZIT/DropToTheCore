@@ -26,7 +26,7 @@ namespace InGame.Level
                 isClaimed = true;
                 animator.Play("CheckpointClaim");
 
-                GameManager.instance.SetCheckpoint(this);
+                GameManager.instance.currentCheckpoint = this;
             }
         }
 

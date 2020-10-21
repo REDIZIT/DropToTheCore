@@ -5175,7 +5175,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 373449f7689e51f469677d963ac12ead, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -10039,6 +10039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpPower: 1000
   strafePower: 2000
+  canMove: 1
   trail: {fileID: 1991714544909733442}
   jumpEffectPrefab: {fileID: 2144217145859116707, guid: 1cffa97508dec4f458dbae0eb81ef257, type: 3}
   audioSource: {fileID: 0}

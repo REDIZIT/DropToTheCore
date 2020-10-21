@@ -2,7 +2,10 @@ using InGame.Level;
 using InGame.SceneLoading;
 using InGame.Secrets;
 using InGame.Settings;
+using InGame.Utils;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Advertisements;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -10,7 +13,7 @@ using UnityEngine.UI;
 
 namespace InGame.Game
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IUnityAdsListener
     {
         public static GameManager instance;
 
@@ -27,6 +30,11 @@ namespace InGame.Game
         [Header("Pause screen")]
         public Animator pauseScreen;
 
+        [Header("Ads")]
+        public Button watchAdBtn;
+        public Button restartBtn;
+
+        [Header("Other")]
         public float depth;
 
         public Text depthText;
@@ -35,6 +43,8 @@ namespace InGame.Game
 
 
         [HideInInspector] public CheckpointController currentCheckpoint;
+
+        private bool isAdWatchedInRun;
 
 
         public const float WORLD_WIDTH = 32;
@@ -49,30 +59,61 @@ namespace InGame.Game
             player.transform.position = new Vector3(0, -depth);
 
             generator.GenerationLoop(true);
+
+            Advertisement.AddListener(this);
+            Advertisement.Initialize("3872551", false);
         }
+
         private void Update()
         {
             depth = -player.transform.position.y;
             depthText.text = Mathf.RoundToInt(depth) + "m";
         }
 
-        public void Revive()
+        public void Revive(bool resumeGame = false)
         {
-            if (currentCheckpoint == null)
+            isAlive = true;
+            deathScreen.SetActive(false);
+
+            // New player position based on resumeGame and checkpoint
+            Vector3 newPlayerPosition = resumeGame ?
+                    player.transform.position :
+                    currentCheckpoint == null ?
+                        Vector3.zero :
+                        currentCheckpoint.transform.position - new Vector3(0, 20, 0);
+
+            player.transform.position = newPlayerPosition;
+            player.Relive();
+
+
+
+            if (!resumeGame)
             {
-                player.transform.position = Vector3.zero;
+                Time.timeScale = 1;
+                isAdWatchedInRun = false;
+                generator.ClearSpawnedAreas(currentCheckpoint);
             }
             else
             {
-                player.transform.position = currentCheckpoint.transform.position - new Vector3(0, 20, 0);
+                StartCoroutine(IEResumedRevive());
             }
-
-            deathScreen.SetActive(false);
-            Time.timeScale = 1;
-            isAlive = true;
-            player.Relive();
-            generator.ClearSpawnedAreas(currentCheckpoint);
         }
+        private IEnumerator IEResumedRevive()
+        {
+            player.shield.hasShield = true;
+            player.shield.Use();
+
+            Time.timeScale = 0.5f;
+
+            while (Time.timeScale < 1)
+            {
+                yield return new WaitForEndOfFrame();
+                Time.timeScale += (0.5f - (Time.timeScale - 0.5f)) * 0.01f;
+            }
+            Time.timeScale = 1;
+        }
+
+
         public void Pause()
         {
             Time.timeScale = 0;
@@ -114,14 +155,52 @@ namespace InGame.Game
             {
                 newRecordText.SetActive(false);
             }
+
+            
+            if (!isAdWatchedInRun && Advertisement.IsReady())
+            {
+                StartCoroutine(IEAdButtonPresent());
+            }
+            else
+            {
+                restartBtn.interactable = true;
+                watchAdBtn.gameObject.SetActive(false);
+            }
+        }
+
+        public void WatchAd()
+        {
+            if (Advertisement.IsReady())
+            {
+                Advertisement.Show("rewardedVideo");
+            }
+        }
+
+        private IEnumerator IEAdButtonPresent()
+        {
+            restartBtn.interactable = false;
+            watchAdBtn.gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(3);
+
+            restartBtn.interactable = true;
         }
 
 
 
 
-        public void SetCheckpoint(CheckpointController checkpoint)
+        public void OnUnityAdsReady(string placementId) { }
+        public void OnUnityAdsDidError(string message) { Debug.LogError("Unity ad error: " + message); }
+
+        public void OnUnityAdsDidStart(string placementId) { }
+
+        public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
         {
-            currentCheckpoint = checkpoint;
+            if (showResult != ShowResult.Failed)
+            {
+                isAdWatchedInRun = true;
+                Revive(true);
+            }
         }
     }
 }
