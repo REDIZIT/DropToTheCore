@@ -1,5 +1,5 @@
-﻿Key|English|Russian|French|Spanish
-SelectDepthToStart|Select depth\n<size=90>to start</size>|Выбери глубину\n<size=90>чтобы начать</size>|Sélectionnez la profondeur\n<size=90>pour commencer</size>|Seleccione la profundidad\n<size=90>para comenzar</size>
-ClickToStart|< click to start >|< нажми чтобы начать >|< cliquez pour commencer >|< haga clic para comenzar >
-OtherCheckpoints|Other checkpoints|Другие чекпоинты|Autres points de contrôle|Otros puntos de control
-YourRecordIs|Your record is|Твой рекорд|Votre record est|Tu récord es
+﻿Key|English|Russian|French|Spanish|Italian
+SelectDepthToStart|Select depth\n<size=90>to start</size>|Выбери глубину\n<size=90>чтобы начать</size>|Sélectionnez la profondeur\n<size=90>pour commencer</size>|Seleccione la profundidad\n<size=90>para comenzar</size>|Seleziona la profondità\n<size=90>per iniziare</size>
+ClickToStart|< click to start >|< нажми чтобы начать >|< cliquez pour commencer >|< haga clic para comenzar >|< fare clic per iniziare >
+OtherCheckpoints|Other checkpoints|Другие чекпоинты|Autres points de contrôle|Otros puntos de control|Altri posti di blocco
+YourRecordIs|Your record is|Твой рекорд|Votre record est|Tu récord es|Il tuo record è

@@ -1,5 +1,5 @@
-﻿Key|English|Russian|French|Spanish
-TapToJumpUp|Tap on center to jump up!|Нажми в центр чтобы прыгнуть вверх!|Appuyez sur le centre pour sauter!|Toque en el centro para saltar!
-TapToJumpSides|Tap sides to jump right or left!|Жми по сторонам чтобы прыгнуть влево или вправо!|Appuyez sur les côtés pour sauter à droite ou à gauche!|¡Toca los lados para saltar a la derecha oa la izquierda!
-Great!|Great!|Отлично!|Génial!|¡Excelente!
-GoOn|Go on|Продолжай|Continue|Seguir
+﻿Key|English|Russian|French|Spanish|Italian
+TapToJumpUp|Tap on center to jump up!|Нажми в центр чтобы прыгнуть вверх!|Appuyez sur le centre pour sauter!|Toque en el centro para saltar!|Tocca il centro per saltare!
+TapToJumpSides|Tap sides to jump right or left!|Жми по сторонам чтобы прыгнуть влево или вправо!|Appuyez sur les côtés pour sauter à droite ou à gauche!|¡Toca los lados para saltar a la derecha oa la izquierda!|Tocca i lati per saltare a destra oa sinistra!
+Great!|Great!|Отлично!|Génial!|¡Excelente!|Grande!
+GoOn|Go on|Продолжай|Continue|Seguir|Vai avanti

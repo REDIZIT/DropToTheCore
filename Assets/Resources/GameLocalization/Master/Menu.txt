@@ -1,2 +1,2 @@
-Key|English|Russian|French|Spanish
-Loading|Loading|Загрузка|Chargement|Cargando
+Key|English|Russian|French|Spanish|Italian
+Loading|Loading|Загрузка|Chargement|Cargando|Caricamento in corso

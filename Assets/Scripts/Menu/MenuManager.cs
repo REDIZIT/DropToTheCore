@@ -104,6 +104,8 @@ namespace InGame.Menu
 
                 case SystemLanguage.Spanish: return "Spanish";
 
+                case SystemLanguage.Italian: return "Italian";
+
                 default: return "English";
             }
         }

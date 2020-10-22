@@ -1,7 +1,7 @@
-﻿Key|English|Russian|French|Spanish
-Settings|Settings|Настройки|Réglages|Configuraciones
-Audio|Audio|Звук|l'audio|Audio
-Graphics|Graphics|Графика|Graphique|Gráficos
-Bloom|Bloom|Свечение|Floraison|Florecer
-RenderHighQuality|High render quality|Качественный рендер|Haute qualité de rendu|Alta calidad de renderizado
-Language|Language|Язык|Langue|Idioma
+﻿Key|English|Russian|French|Spanish|Italian
+Settings|Settings|Настройки|Réglages|Configuraciones|Impostazioni
+Audio|Audio|Звук|l'audio|Audio|Audio
+Graphics|Graphics|Графика|Graphique|Gráficos|Grafica
+Bloom|Bloom|Свечение|Floraison|Florecer|Fioritura
+RenderHighQuality|High render quality|Качественный рендер|Haute qualité de rendu|Alta calidad de renderizado|Elevata qualità di rendering
+Language|Language|Язык|Langue|Idioma|Linguaggio
