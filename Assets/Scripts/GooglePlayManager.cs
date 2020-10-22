@@ -10,7 +10,7 @@ namespace InGame.GooglePlay
         public static void Initialize()
         {
             PlayGamesPlatform.Activate();
-            Social.localUser.Authenticate((success) => { if (!success) { Debug.Log("Google Play Social auth result is " + success) } });
+            Social.localUser.Authenticate((success) => { if (!success) { Debug.Log("Google Play Social auth result is " + success); } });
         }
 
         public static void ShowAchievements()
