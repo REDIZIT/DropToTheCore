@@ -1,0 +1,2 @@
+Key|English|Russian|French|Italian|German|Spanish
+Settings|Settings|Настройки

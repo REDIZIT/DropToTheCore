@@ -1,4 +1,5 @@
 using InGame.Audio;
+using InGame.GooglePlay;
 using InGame.SceneLoading;
 using InGame.Settings;
 using InGame.UI.Custom;
@@ -24,6 +25,7 @@ namespace InGame.Menu
         private void Start()
         {
             LoadSettings();
+            GooglePlayManager.Initialize();
         }
 
 
@@ -33,7 +35,10 @@ namespace InGame.Menu
             SettingsManager.Settings.MusicVolume = musicVolumeSlider.value;
             SettingsManager.Save();
         }
-
+        public void ShowAchievements()
+        {
+            GooglePlayManager.ShowAchievements();
+        }
 
 
 

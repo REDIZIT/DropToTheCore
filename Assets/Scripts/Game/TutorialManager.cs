@@ -1,3 +1,4 @@
+using InGame.GooglePlay;
 using InGame.SceneLoading;
 using InGame.Settings;
 using System.Collections;
@@ -49,8 +50,8 @@ namespace InGame.Tutorial
                 yield return WaitForStep(i);
             }
 
-            tutorialScreen.SetActive(false);
 
+            tutorialScreen.SetActive(false);
             isTutorialRunning = false;
         }
 

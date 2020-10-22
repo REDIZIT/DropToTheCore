@@ -1,3 +1,4 @@
+using InGame.GooglePlay;
 using InGame.Settings;
 using System.Collections;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace InGame.Game
 
             SettingsManager.Settings.IsTutorialPassed = true;
             SettingsManager.Save();
+
+            GooglePlayManager.GetTutorialAchievement();
 
 
             while (rig.drag <= 8f)
