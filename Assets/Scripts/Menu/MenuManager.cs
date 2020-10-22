@@ -99,6 +99,11 @@ namespace InGame.Menu
                 case SystemLanguage.Ukrainian:
                     return "Russian";
 
+                case SystemLanguage.French:
+                    return "French";
+
+                case SystemLanguage.Spanish: return "Spanish";
+
                 default: return "English";
             }
         }

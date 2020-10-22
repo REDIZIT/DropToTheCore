@@ -1,10 +1,10 @@
-﻿Key|English|Russian
-NewRecord|New record!|Новый рекорд!
-Your depth|Your depth|Твоя глубина
-Your best depth|Your best depth|Твоя лучшая глубина
-Try again|Try again|Заново
-Menu|Menu|Меню
-Get second chance|Get second chance|Второй шанс
+﻿Key|English|Russian|French|Spanish
+NewRecord|New record!|Новый рекорд!|Nouvel enregistrement!|
+Your depth|Your depth|Твоя глубина|Votre profondeur|Nuevo récord!
+Your best depth|Your best depth|Твоя лучшая глубина|Votre meilleure profondeur|Tu mejor profundidad
+Try again|Try again|Заново|Réessayer|Inténtalo de nuevo
+Menu|Menu|Меню|Menu|Menú
+Get second chance|Second chance|Второй шанс|Deuxième chance|Segunda oportunidad
 
-Paused|Paused|Пауза
-Continue|Continue|Продолжить
+Paused|Paused|Пауза|En pause|Pausado
+Continue|Continue|Продолжить|Continuer|Seguir
