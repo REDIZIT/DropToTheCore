@@ -17,8 +17,9 @@ namespace Assets.SimpleLocalization
         public static event Action LocalizationChanged = () => { }; 
 
         public static readonly Dictionary<string, Dictionary<string, string>> Dictionary = new Dictionary<string, Dictionary<string, string>>();
-        public static string _language = "Unknown";
         public static string folderPath = "GameLocalization/Master";
+
+        private static string _language = "Unknown";
 
 		/// <summary>
 		/// Get or set language.
@@ -36,7 +37,13 @@ namespace Assets.SimpleLocalization
         {
             if (Dictionary.Count > 0 && !force) return;
 
-            _language = Application.systemLanguage == SystemLanguage.Russian ? "Russian" : "English";
+            if (_language == "Unknown")
+            {
+                Debug.LogError("Unknown localization language. English will be used instead");
+                _language = "English";
+            }
+
+
 
             var textAssets = Resources.LoadAll<TextAsset>(folderPath);
 

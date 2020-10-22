@@ -4,3 +4,4 @@ Audio|Audio|Звук
 Graphics|Graphics|Графика
 Bloom|Bloom|Свечение
 RenderHighQuality|High render quality|Качественный рендер
+Language|Language|Язык

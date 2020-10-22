@@ -1,3 +1,4 @@
+using Assets.SimpleLocalization;
 using InGame.Audio;
 using InGame.GooglePlay;
 using InGame.SceneLoading;
@@ -22,7 +23,7 @@ namespace InGame.Menu
         public CustomToggle highScaleToggle;
 
 
-        private void Start()
+        private void Awake()
         {
             LoadSettings();
             GooglePlayManager.Initialize();
@@ -39,7 +40,12 @@ namespace InGame.Menu
         {
             GooglePlayManager.ShowAchievements();
         }
-
+        public void OnLanguageBtnClick(string language)
+        {
+            SettingsManager.Settings.Language = language;
+            SettingsManager.Save();
+            LocalizationManager.Language = language;
+        }
 
 
         private void LoadSettings()
@@ -74,6 +80,27 @@ namespace InGame.Menu
 
                 (GraphicsSettings.renderPipelineAsset as UniversalRenderPipelineAsset).renderScale = isOn ? 1 : 0.75f;
             };
+
+
+
+
+            if(SettingsManager.Settings.Language == "Not set")
+            {
+                SettingsManager.Settings.Language = GetSupportedSystemLanguage();
+            }
+            LocalizationManager.Language = SettingsManager.Settings.Language;
+        }
+
+        private string GetSupportedSystemLanguage()
+        {
+            switch (Application.systemLanguage)
+            {
+                case SystemLanguage.Russian:
+                case SystemLanguage.Ukrainian:
+                    return "Russian";
+
+                default: return "English";
+            }
         }
     }
 }
