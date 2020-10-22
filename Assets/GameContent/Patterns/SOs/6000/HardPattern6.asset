@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a018d334a8695654ab311fe01ef42cfd, type: 3}
-  m_Name: HardPattern3
+  m_Name: HardPattern6
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9117189940782698183, guid: f4207e0b0c1e7424bb1c5e563ec99679, type: 3}
-  startDepth: 4000
-  endDepth: 7000
-  chancePoints: 1
+  prefab: {fileID: 1246643557781060255, guid: 15514a796ea8ce54789ce053b14fbf85, type: 3}
+  startDepth: 6000
+  endDepth: 8000
+  chancePoints: 9999

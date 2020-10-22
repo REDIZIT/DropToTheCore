@@ -1493,7 +1493,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8191107299238152660, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: size.x
-      value: 15.750001
+      value: 5.75
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299238152661, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_Size.x
@@ -1501,11 +1501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299238152663, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.125
+      value: -3.125
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299624873478, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: beamWidth
-      value: 15.750001
+      value: 5.75
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299624873496, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1557,11 +1557,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191107300060590542, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 31.500002
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8191107300422952857, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: size.x
-      value: 15.750001
+      value: 5.75
       objectReference: {fileID: 0}
     - target: {fileID: 8191107300422952858, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_Size.x
@@ -2663,7 +2663,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8191107299238152660, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: size.x
-      value: 15.25
+      value: 4.7500005
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299238152661, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_Size.x
@@ -2671,11 +2671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299238152663, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.875
+      value: -2.6250002
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299624873478, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: beamWidth
-      value: 15.25
+      value: 4.7500005
       objectReference: {fileID: 0}
     - target: {fileID: 8191107299624873496, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2727,11 +2727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191107300060590542, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 30.5
+      value: 9.500001
       objectReference: {fileID: 0}
     - target: {fileID: 8191107300422952857, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: size.x
-      value: 15.25
+      value: 4.7500005
       objectReference: {fileID: 0}
     - target: {fileID: 8191107300422952858, guid: f78237075a5ffdc44a6fa8a301012e5d, type: 3}
       propertyPath: m_Size.x
