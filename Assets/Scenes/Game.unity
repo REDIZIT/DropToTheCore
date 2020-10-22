@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 326000355}
   - component: {fileID: 326000357}
   - component: {fileID: 326000356}
+  - component: {fileID: 326000358}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -899,6 +900,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326000354}
   m_CullTransparentMesh: 0
+--- !u!114 &326000358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326000354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Menu
 --- !u!1 &361948821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1062,7 @@ GameObject:
   - component: {fileID: 414599336}
   - component: {fileID: 414599338}
   - component: {fileID: 414599337}
+  - component: {fileID: 414599339}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1116,6 +1131,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414599335}
   m_CullTransparentMesh: 0
+--- !u!114 &414599339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414599335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Paused
 --- !u!1 &416573055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1230,7 @@ GameObject:
   - component: {fileID: 493444349}
   - component: {fileID: 493444351}
   - component: {fileID: 493444350}
+  - component: {fileID: 493444352}
   m_Layer: 5
   m_Name: ScoreLabel
   m_TagString: Untagged
@@ -1271,6 +1300,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493444348}
   m_CullTransparentMesh: 0
+--- !u!114 &493444352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493444348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Your depth
 --- !u!1 &508658011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,6 +1849,7 @@ GameObject:
   - component: {fileID: 578868242}
   - component: {fileID: 578868244}
   - component: {fileID: 578868243}
+  - component: {fileID: 578868245}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1875,6 +1918,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578868241}
   m_CullTransparentMesh: 0
+--- !u!114 &578868245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578868241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Try again
 --- !u!1 &579699962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +1942,7 @@ GameObject:
   - component: {fileID: 579699963}
   - component: {fileID: 579699965}
   - component: {fileID: 579699964}
+  - component: {fileID: 579699966}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1954,6 +2011,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579699962}
   m_CullTransparentMesh: 0
+--- !u!114 &579699966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579699962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Get second chance
 --- !u!1 &716561843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2417,7 @@ GameObject:
   - component: {fileID: 1066295369}
   - component: {fileID: 1066295371}
   - component: {fileID: 1066295370}
+  - component: {fileID: 1066295372}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2415,6 +2486,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066295368}
   m_CullTransparentMesh: 0
+--- !u!114 &1066295372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066295368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Try again
 --- !u!1 &1073195431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2589,7 @@ GameObject:
   - component: {fileID: 1118531404}
   - component: {fileID: 1118531406}
   - component: {fileID: 1118531405}
+  - component: {fileID: 1118531407}
   m_Layer: 5
   m_Name: NewRecordText
   m_TagString: Untagged
@@ -2573,6 +2658,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118531403}
   m_CullTransparentMesh: 0
+--- !u!114 &1118531407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118531403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: NewRecord
 --- !u!1 &1151168920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3712,6 +3810,7 @@ GameObject:
   - component: {fileID: 1797993206}
   - component: {fileID: 1797993208}
   - component: {fileID: 1797993207}
+  - component: {fileID: 1797993209}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3780,6 +3879,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797993205}
   m_CullTransparentMesh: 0
+--- !u!114 &1797993209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797993205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Continue
 --- !u!1 &1830320880
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,6 +3903,7 @@ GameObject:
   - component: {fileID: 1830320881}
   - component: {fileID: 1830320883}
   - component: {fileID: 1830320882}
+  - component: {fileID: 1830320884}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3859,6 +3972,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830320880}
   m_CullTransparentMesh: 0
+--- !u!114 &1830320884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830320880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Menu
 --- !u!1 &1856779925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3962,6 +4088,7 @@ GameObject:
   - component: {fileID: 2013990290}
   - component: {fileID: 2013990292}
   - component: {fileID: 2013990291}
+  - component: {fileID: 2013990293}
   m_Layer: 5
   m_Name: BestScoreLabel
   m_TagString: Untagged
@@ -4031,6 +4158,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013990289}
   m_CullTransparentMesh: 0
+--- !u!114 &2013990293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013990289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Your best depth
 --- !u!1 &2020075767
 GameObject:
   m_ObjectHideFlags: 0

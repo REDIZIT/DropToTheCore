@@ -92,7 +92,8 @@ namespace Assets.SimpleLocalization
             if (!Dictionary.ContainsKey(Language)) { Debug.LogError("Language not found: " + Language); return localizationKey; }
             if (!Dictionary[Language].ContainsKey(localizationKey)) { Debug.LogError("Translation not found: " + localizationKey); return localizationKey; }
 
-            return Dictionary[Language][localizationKey];
+            return Dictionary[Language][localizationKey].Replace(@"\n", @"
+");
         }
 
 	    /// <summary>

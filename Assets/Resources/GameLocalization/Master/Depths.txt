@@ -1,0 +1,5 @@
+﻿Key|English|Russian
+SelectDepthToStart|Select depth\n<size=90>to start</size>|Выбери глубину\n<size=90>чтобы начать</size>
+ClickToStart|< click to start >|< нажми чтобы начать >
+OtherCheckpoints|Other checkpoints|Другие чекпоинты
+YourRecordIs|Your record is|Твой рекорд
