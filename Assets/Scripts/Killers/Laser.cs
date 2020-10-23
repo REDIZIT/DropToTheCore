@@ -20,14 +20,14 @@ namespace InGame.Level
         }
         private void Update()
         {
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + beamOriginPosition, -transform.right);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + (beamOriginPosition * transform.right.x), -transform.right);
 
             RaycastHit2D wallHit = hits.FirstOrDefault(c => !c.transform.CompareTag("Player"));
             if (wallHit.transform == null) return;
 
-            beamWidth = Vector2.Distance(transform.position + beamOriginPosition, wallHit.point) / 2f;
+            beamWidth = Vector2.Distance(transform.position + (beamOriginPosition * transform.right.x), wallHit.point) / 2f + Mathf.Abs(beamOriginPosition.x);
 
-            beam.transform.localPosition = new Vector3(beamOriginPosition.x - beamWidth, 0) / 2f;
+            beam.transform.localPosition = new Vector3((beamOriginPosition.x * transform.right.x) - beamWidth, 0) / 2f;
 
             beam.size = new Vector2(beamWidth, 1);
             beamSemiAlpha.size = beam.size;

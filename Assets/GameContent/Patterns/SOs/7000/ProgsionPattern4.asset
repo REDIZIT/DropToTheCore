@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a018d334a8695654ab311fe01ef42cfd, type: 3}
-  m_Name: ProgsionPattern2
+  m_Name: ProgsionPattern4
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4954887393460087320, guid: 666ab00d1f8ee9b4e95c253c77096c86, type: 3}
-  startDepth: 6000
-  endDepth: 8000
+  prefab: {fileID: 7792398868739639660, guid: 1cc5c96bcfa76d14492684145f7595f2, type: 3}
+  startDepth: 7000
+  endDepth: 9000
   chancePoints: 1

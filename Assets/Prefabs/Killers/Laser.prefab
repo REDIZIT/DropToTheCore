@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8191107299238152680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.125, y: 0, z: 0}
+  m_LocalPosition: {x: -4.375, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.3, z: 1}
   m_Children:
   - {fileID: 8191107300422952860}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c464c97467d1540868626e642014be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 7.75, y: 1}
+  size: {x: 8.25, y: 1}
   useNewWayToDetectPrefab: 1
 --- !u!212 &8191107299238152661
 SpriteRenderer:
@@ -149,7 +149,7 @@ MonoBehaviour:
   beam: {fileID: 8191107299238152660}
   beamSemiAlpha: {fileID: 8191107300422952857}
   particles: {fileID: 8191107300060590542}
-  beamWidth: 7.75
+  beamWidth: 8.25
 --- !u!61 &8191107299624873477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -913,7 +913,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 15.5, y: 1, z: 1}
+    m_Scale: {x: 16.5, y: 1, z: 1}
     placementMode: 1
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -5095,7 +5095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c464c97467d1540868626e642014be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 7.75, y: 1}
+  size: {x: 8.25, y: 1}
   useNewWayToDetectPrefab: 1
 --- !u!212 &8191107300422952858
 SpriteRenderer:

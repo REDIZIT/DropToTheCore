@@ -69,7 +69,7 @@ namespace InGame
                 Instance.patterns.Add((AreaSO)AssetDatabase.LoadAssetAtPath(assetPath, typeof(AreaSO)));
             }
 
-            if (w.ElapsedMilliseconds > 100)
+            if (w.ElapsedMilliseconds > 1000)
             {
                 Debug.LogError($"SODB indexed patterns files in {w.ElapsedMilliseconds}ms! That's too long!");
             }

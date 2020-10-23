@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6386235060673931712, guid: e80a52307f07f344680775459c813ae7, type: 3}
   startDepth: 5000
-  endDepth: 8000
+  endDepth: 7000
   chancePoints: 1
