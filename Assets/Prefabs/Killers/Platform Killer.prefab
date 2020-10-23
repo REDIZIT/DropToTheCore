@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c464c97467d1540868626e642014be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 6, y: 1}
+  size: {x: 4, y: 1}
   useNewWayToDetectPrefab: 0
 --- !u!212 &8923033227415248048
 SpriteRenderer:
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 4, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -116,11 +116,11 @@ BoxCollider2D:
     border: {x: 0.10795455, y: 0.10795455, z: 0.10795455, w: 0.10795455}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 6, y: 1}
+    newSize: {x: 4, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 4, y: 1}
   m_EdgeRadius: 0

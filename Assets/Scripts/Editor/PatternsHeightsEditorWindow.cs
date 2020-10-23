@@ -98,6 +98,8 @@ namespace InEditor.GameTools
                 string assetPath = "Assets" + matFile.Replace(Application.dataPath, "").Replace('\\', '/');
                 indexedPatterns.Add((AreaSO)AssetDatabase.LoadAssetAtPath(assetPath, typeof(AreaSO)));
             }
+
+            indexedPatterns = indexedPatterns.OrderBy(c => c.startDepth).ToList();
         }
         private void HandleArrowKeysScrolling()
         {
