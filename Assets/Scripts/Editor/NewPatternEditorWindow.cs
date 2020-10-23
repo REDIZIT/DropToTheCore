@@ -136,8 +136,8 @@ namespace InEditor.GameTools
             //GUILayout.Space(-4);
 
 
-            int newStartDepth = EditorGUILayout.DelayedIntField("Start depth", selectedArea.startDepth, GUILayout.ExpandWidth(false));
-            int newEndDepth = EditorGUILayout.DelayedIntField("End depth", selectedArea.endDepth, GUILayout.ExpandWidth(false));
+            int newStartDepth = EditorGUILayout.DelayedIntField("Start depth (in km)", selectedArea.startDepth / 1000, GUILayout.ExpandWidth(false)) * 1000;
+            int newEndDepth = EditorGUILayout.DelayedIntField("End depth (in km)", selectedArea.endDepth / 1000, GUILayout.ExpandWidth(false)) * 1000;
 
 
             if (newStartDepth != selectedArea.startDepth || newEndDepth != selectedArea.endDepth)

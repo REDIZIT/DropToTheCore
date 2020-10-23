@@ -158,8 +158,8 @@ namespace InEditor.GameTools
                 GUILayout.BeginHorizontal();
 
 
-                GUILayout.Button(_transparentStyle.normal.background, _transparentStyle, GUILayout.Width(normalizedStartDepth * windowWidth), GUILayout.Height(5));
-                if (GUILayout.Button(_staticRectStyle.normal.background, pattern == selectedArea ? _selectedStyle : _staticRectStyle, GUILayout.Width((normalizedEndDepth - normalizedStartDepth) * windowWidth), GUILayout.Height(5)))
+                GUILayout.Button(_transparentStyle.normal.background, _transparentStyle, GUILayout.Width(normalizedStartDepth * windowWidth), GUILayout.Height(3));
+                if (GUILayout.Button(_staticRectStyle.normal.background, pattern == selectedArea ? _selectedStyle : _staticRectStyle, GUILayout.Width((normalizedEndDepth - normalizedStartDepth) * windowWidth), GUILayout.Height(3)))
                 {
                     selectedArea = pattern;
                     EditorGUIUtility.PingObject(selectedArea);
