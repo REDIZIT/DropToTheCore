@@ -30,7 +30,7 @@ namespace InGame.Game
             SettingsManager.Settings.IsTutorialPassed = true;
             SettingsManager.Save();
 
-            GooglePlayManager.GetTutorialAchievement();
+            GooglePlayManager.GiveTutorialAchievement();
 
 
             while (rig.drag <= 8f)

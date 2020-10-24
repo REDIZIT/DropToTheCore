@@ -11,6 +11,7 @@ namespace InGame.Level
         public PlayerController player;
 
         public CheckpointController checkpointPrefab;
+        public GameObject lavaPrefab;
 
         public float areasSpacing;
 
@@ -21,18 +22,32 @@ namespace InGame.Level
         private List<GameObject> spawnedCheckpoints = new List<GameObject>();
 
         private AreaSO prevPattern;
+        private bool isEndReached;
+        private float maxDepth = 1e+10F;
 
         public const float CHECKPOINTS_DISTANCE = 500;
 
 
+        private void Awake()
+        {
+            maxDepth = GameManager.instance.sodb.patterns.Max(c => c.endDepth);
+            Debug.Log("Max depth is " + maxDepth);
+            //maxDepth = 5000;
+        }
         private void Update()
         {
             GenerationLoop();
         }
         public void GenerationLoop(bool isInit = false)
         {
-            if (-player.transform.position.y >= lastSpawnedDepth - 50)
+            if (!isEndReached && -player.transform.position.y >= lastSpawnedDepth - 50)
             {
+                if (lastSpawnedDepth - 50 >= maxDepth)
+                {
+                    SpawnLava();
+                    isEndReached = true;
+                    return;
+                }
                 SpawnNextArea();
                 SpawnBonus();
 
@@ -42,6 +57,8 @@ namespace InGame.Level
                     return;
                 }
             }
+
+
 
 
             if (toDestroyAfterDeath.Count > 0)
@@ -160,9 +177,15 @@ namespace InGame.Level
 
             inst.GetComponent<BonusController>().model = bonus;
         }
+        private void SpawnLava()
+        {
+            GameObject inst = Instantiate(lavaPrefab);
+            inst.transform.position = new Vector3(0, -lastSpawnedDepth - areasSpacing);
+            lastSpawnedDepth = -inst.transform.position.y + 1000;
+        }
 
 
-        
+
 
 
 

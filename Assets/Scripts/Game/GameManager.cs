@@ -134,7 +134,7 @@ namespace InGame.Game
 
 
 
-        public void DeadActions()
+        public void DeadActions(bool canRetry = true)
         {
             isAlive = false;
 
@@ -166,6 +166,10 @@ namespace InGame.Game
                 restartBtn.interactable = true;
                 watchAdBtn.gameObject.SetActive(false);
             }
+
+
+            restartBtn.gameObject.SetActive(canRetry);
+            watchAdBtn.gameObject.SetActive(canRetry);
         }
 
         public void WatchAd()

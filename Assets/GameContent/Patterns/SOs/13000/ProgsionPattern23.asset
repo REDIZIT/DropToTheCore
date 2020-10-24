@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a018d334a8695654ab311fe01ef42cfd, type: 3}
+  m_Name: ProgsionPattern23
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6999942821030991176, guid: 8082dd8f9bb6a194a863bb2432b42b19, type: 3}
+  startDepth: 13000
+  endDepth: 15000
+  chancePoints: 1

@@ -19,7 +19,7 @@ namespace Assets.SimpleLocalization
         public static readonly Dictionary<string, Dictionary<string, string>> Dictionary = new Dictionary<string, Dictionary<string, string>>();
         public static string folderPath = "GameLocalization/Master";
 
-        private static string _language = "Unknown";
+        private static string _language = "English";
 
 		/// <summary>
 		/// Get or set language.
