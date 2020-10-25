@@ -1,8 +1,8 @@
 using InGame.Level;
+using InGame.Level.Generation;
 using InGame.SceneLoading;
 using InGame.Secrets;
 using InGame.Settings;
-using InGame.Utils;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -19,7 +19,7 @@ namespace InGame.Game
 
         public SODB sodb;
         public PlayerController player;
-        public LevelGenerator generator;
+        public BasicLevelGenerator generator;
         public Volume postProcessing;
 
         [Header("Death screen")]
@@ -55,10 +55,10 @@ namespace InGame.Game
             instance = this;
             postProcessing.profile.components.Find(c => c.GetType() == typeof(Bloom)).active = SettingsManager.Settings.IsBloomEnabled;
 
-            depth = generator.GetCurrentCheckpointDepth(SceneLoader.LoadOnDepth) + 5;
+            depth = generator.GetPlayerStartDepth(SceneLoader.LoadOnDepth) + 5;
             player.transform.position = new Vector3(0, -depth);
 
-            generator.GenerationLoop(true);
+            //generator.GenerationLoop(true);
 
             Advertisement.AddListener(this);
             Advertisement.Initialize("3872551", false);
@@ -91,7 +91,8 @@ namespace InGame.Game
             {
                 Time.timeScale = 1;
                 isAdWatchedInRun = false;
-                generator.ClearSpawnedAreas(currentCheckpoint);
+                generator.ClearSpawnedObjects();
+                generator.ResetByRevive(currentCheckpoint);
             }
             else
             {

@@ -1,5 +1,5 @@
 using Assets.SimpleLocalization;
-using InGame.Level;
+using InGame.Level.Generation;
 using InGame.SceneLoading;
 using InGame.Secrets;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace InGame.Menu
 
         private void Start()
         {
-            float distance = LevelGenerator.CHECKPOINTS_DISTANCE;
+            float distance = CheckpointLevelGenerator.CHECKPOINTS_DISTANCE;
 
             topItem.Refresh(Mathf.FloorToInt(SecretsManager.Secrets.DepthRecord / distance) * distance, OnDepthItemClicked);
             recordText.text = LocalizationManager.Localize("YourRecordIs") + " " + SecretsManager.Secrets.DepthRecord + "m";

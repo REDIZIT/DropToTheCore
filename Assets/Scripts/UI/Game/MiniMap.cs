@@ -1,4 +1,5 @@
 using InGame.Game;
+using InGame.Level.Generation;
 using UnityEngine;
 
 namespace InGame.UI.Game
@@ -19,12 +20,24 @@ namespace InGame.UI.Game
         private float mapScaling = 300;
         private float mapOffset = 0;
         private float currentMapOffset = 0;
+        private CheckpointLevelGenerator gen;
 
 
+        private void Awake()
+        {
+            if (!(GameManager.instance.generator is CheckpointLevelGenerator))
+            {
+                enabled = false;
+            }
+            else
+            {
+                gen = GameManager.instance.generator as CheckpointLevelGenerator;
+            }
+        }
         private void Update()
         {
             float currentCheckpointDepth = GameManager.instance.currentCheckpoint ? -GameManager.instance.currentCheckpoint.transform.position.y : 0;
-            float nextCheckpointDepth = GameManager.instance.generator.GetNextCheckpointDepth(GameManager.instance.depth);
+            float nextCheckpointDepth = gen.GetNextCheckpointDepth(GameManager.instance.depth);
             float playerDepth = -PlayerController.instance.transform.position.y;
 
 

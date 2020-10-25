@@ -2106,6 +2106,8 @@ GameObject:
   - component: {fileID: 1001482110}
   - component: {fileID: 1001482109}
   - component: {fileID: 1001482111}
+  - component: {fileID: 1001482112}
+  - component: {fileID: 1001482113}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2127,7 +2129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sodb: {fileID: 11400000, guid: 65530e8da336cd94ca405f82fbb41b64, type: 2}
   player: {fileID: 237946415}
-  generator: {fileID: 1001482111}
+  generator: {fileID: 1001482112}
   postProcessing: {fileID: 519420033}
   deathScreen: {fileID: 1573010615}
   deathScreenDepthText: {fileID: 2087461930}
@@ -2161,15 +2163,43 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001482108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffe7a6dcc491d6944aef9130e01f2a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 237946415}
+  bonusGenerator: {fileID: 1001482113}
+  spawnedObjects: []
   checkpointPrefab: {fileID: 240185401582248522, guid: 9843e9097de7e01429882837a6bd01ea, type: 3}
   lavaPrefab: {fileID: 210443010460799286, guid: 8a42c255a04ac594ea95d0da80505ad2, type: 3}
-  areasSpacing: 20
+--- !u!114 &1001482112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001482108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280a76a8c93618a4b8a9936021c466e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 237946415}
+  bonusGenerator: {fileID: 1001482113}
+  spawnedObjects: []
+--- !u!114 &1001482113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001482108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060c12a02c91f4547b7a0c14e446646f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1043567006
 GameObject:
   m_ObjectHideFlags: 0
