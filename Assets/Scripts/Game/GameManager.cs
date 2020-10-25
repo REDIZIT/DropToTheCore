@@ -157,7 +157,7 @@ namespace InGame.Game
             }
 
             
-            if (!isAdWatchedInRun && Advertisement.IsReady())
+            if (!isAdWatchedInRun && Advertisement.IsReady() && canRetry)
             {
                 StartCoroutine(IEAdButtonPresent());
             }
@@ -169,7 +169,6 @@ namespace InGame.Game
 
 
             restartBtn.gameObject.SetActive(canRetry);
-            watchAdBtn.gameObject.SetActive(canRetry);
         }
 
         public void WatchAd()
