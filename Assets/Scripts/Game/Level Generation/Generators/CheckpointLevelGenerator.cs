@@ -1,5 +1,5 @@
 using InGame.Game;
-using InGame.Game.Bonuses;
+using InGame.SceneLoading;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,6 +23,21 @@ namespace InGame.Level.Generation
         private void Awake()
         {
             maxDepth = GameManager.instance.sodb.patterns.Max(c => c.endDepth);
+
+            lastSpawnedDepth = SceneLoader.LoadOnDepth;
+        }
+        private void Start()
+        {
+            FirstGenerationLoop();
+        }
+
+        private void FirstGenerationLoop()
+        {
+            if (lastSpawnedDepth - 50 >= maxDepth)
+            {
+                GenerateNewPattern();
+                FirstGenerationLoop();
+            }
         }
 
         protected override void GenerateNewPattern()
@@ -129,7 +144,9 @@ namespace InGame.Level.Generation
 
         public override float GetPlayerStartDepth(float depth)
         {
-            return GetCurrentCheckpointDepth(depth);
+            float result = GetCurrentCheckpointDepth(depth);
+            Debug.Log("Player start depth is " + result);
+            return result;
         }
     }
 }

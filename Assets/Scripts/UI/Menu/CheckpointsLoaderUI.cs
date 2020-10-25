@@ -57,7 +57,7 @@ namespace InGame.Menu
             loadingScreenMask.anchoredPosition = Input.mousePosition;
             loadingScreenAnimator.Play("ShowScreen");
 
-            StartCoroutine(SceneLoader.LoadGame(depth));
+            StartCoroutine(SceneLoader.LoadCheckpointsGame(depth));
         }
     }
 }

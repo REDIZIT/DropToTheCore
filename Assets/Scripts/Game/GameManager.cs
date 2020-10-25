@@ -19,8 +19,13 @@ namespace InGame.Game
 
         public SODB sodb;
         public PlayerController player;
-        public BasicLevelGenerator generator;
         public Volume postProcessing;
+
+        [Header("Level generators")]
+        public CheckpointLevelGenerator checkpointGenerator;
+        public InfiniteLevelGenerator infiniteGenerator;
+        public HardInfiniteLevelGenerator hardInfiniteGenerator;
+        [HideInInspector] public BasicLevelGenerator generator;
 
         [Header("Death screen")]
         public GameObject deathScreen;
@@ -55,10 +60,11 @@ namespace InGame.Game
             instance = this;
             postProcessing.profile.components.Find(c => c.GetType() == typeof(Bloom)).active = SettingsManager.Settings.IsBloomEnabled;
 
+            HandleLevelGenerators();
+
             depth = generator.GetPlayerStartDepth(SceneLoader.LoadOnDepth) + 5;
             player.transform.position = new Vector3(0, -depth);
 
-            //generator.GenerationLoop(true);
 
             Advertisement.AddListener(this);
             Advertisement.Initialize("3872551", false);
@@ -68,6 +74,21 @@ namespace InGame.Game
         {
             depth = -player.transform.position.y;
             depthText.text = Mathf.RoundToInt(depth) + "m";
+        }
+
+        private void HandleLevelGenerators()
+        {
+            checkpointGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.Checkpoints;
+            infiniteGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.Infinity;
+            hardInfiniteGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.RandomInfinity;
+
+
+            switch (SceneLoader.GameType)
+            {
+                case SceneLoader.LoadGameType.Checkpoints: generator = checkpointGenerator; break;
+                case SceneLoader.LoadGameType.Infinity: generator = infiniteGenerator; break;
+                case SceneLoader.LoadGameType.RandomInfinity: generator = hardInfiniteGenerator; break;
+            }
         }
 
         public void Revive(bool resumeGame = false)

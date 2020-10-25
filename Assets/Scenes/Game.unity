@@ -2107,6 +2107,7 @@ GameObject:
   - component: {fileID: 1001482109}
   - component: {fileID: 1001482111}
   - component: {fileID: 1001482112}
+  - component: {fileID: 1001482114}
   - component: {fileID: 1001482113}
   m_Layer: 0
   m_Name: GameManager
@@ -2131,6 +2132,9 @@ MonoBehaviour:
   player: {fileID: 237946415}
   generator: {fileID: 1001482112}
   postProcessing: {fileID: 519420033}
+  checkpointGenerator: {fileID: 1001482111}
+  infiniteGenerator: {fileID: 1001482112}
+  hardInfiniteGenerator: {fileID: 1001482114}
   deathScreen: {fileID: 1573010615}
   deathScreenDepthText: {fileID: 2087461930}
   depthRecordText: {fileID: 988401250}
@@ -2180,7 +2184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001482108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280a76a8c93618a4b8a9936021c466e0, type: 3}
   m_Name: 
@@ -2200,6 +2204,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060c12a02c91f4547b7a0c14e446646f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1001482114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001482108}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebd16c6e504b2d4584cefde86d66043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 237946415}
+  bonusGenerator: {fileID: 1001482113}
+  spawnedObjects: []
 --- !u!1 &1043567006
 GameObject:
   m_ObjectHideFlags: 0

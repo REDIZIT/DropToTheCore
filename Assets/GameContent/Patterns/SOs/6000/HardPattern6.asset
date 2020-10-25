@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 1246643557781060255, guid: 15514a796ea8ce54789ce053b14fbf85, type: 3}
   startDepth: 6000
   endDepth: 8000
-  chancePoints: 9999
+  chancePoints: 1

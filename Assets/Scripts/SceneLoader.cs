@@ -8,10 +8,49 @@ namespace InGame.SceneLoading
     {
         public static float LoadOnDepth { get; private set; }
 
-        public static IEnumerator LoadGame(float depth)
+
+        public static LoadGameType GameType { get; private set; }
+        public enum LoadGameType
+        {
+            Checkpoints, Infinity, RandomInfinity
+        }
+
+
+
+        public static IEnumerator LoadCheckpointsGame(float depth)
         {
             LoadOnDepth = depth;
+            GameType = LoadGameType.Checkpoints;
+            yield return LoadGameScene();
+        }
+        public static IEnumerator LoadInfinityGame()
+        {
+            GameType = LoadGameType.Infinity;
+            Debug.Log("Load infinity game");
+            yield return LoadGameScene();
+            Debug.Log("Loaded");
+        }
+        public static IEnumerator LoadHardInfinityGame()
+        {
+            GameType = LoadGameType.RandomInfinity;
+            yield return LoadGameScene();
+        }
+        public static void LoadMenu()
+        {
+            SceneManager.LoadScene("Menu");
+        }
 
+        public static void LoadTutorial()
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+
+
+
+
+
+        private static IEnumerator LoadGameScene()
+        {
             yield return new WaitForSeconds(0.8f);
 
             AsyncOperation op = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
@@ -23,16 +62,6 @@ namespace InGame.SceneLoading
             }
 
             op.allowSceneActivation = true;
-        }
-
-        public static void LoadMenu()
-        {
-            SceneManager.LoadScene("Menu");
-        }
-
-        public static void LoadTutorial()
-        {
-            SceneManager.LoadScene("Tutorial");
         }
     }
 }
