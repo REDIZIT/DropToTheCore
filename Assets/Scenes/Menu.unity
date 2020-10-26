@@ -15739,6 +15739,8 @@ MonoBehaviour:
   depthsScreen: {fileID: 877357780}
   loadingScreenMask: {fileID: 1964384981}
   loadingScreenAnimator: {fileID: 494065820}
+  infiniteRecordText: {fileID: 818315357}
+  hardInfinityRecordText: {fileID: 2021977235}
 --- !u!1 &1630304185
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,10 @@
+using Assets.SimpleLocalization;
 using InGame.Level;
 using InGame.Level.Generation;
 using InGame.SceneLoading;
 using InGame.Secrets;
 using InGame.Settings;
+using InGame.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -43,6 +45,7 @@ namespace InGame.Game
         public float depth;
 
         public Text depthText;
+        private string meterSymbol;
 
         public bool isAlive = true;
 
@@ -64,7 +67,7 @@ namespace InGame.Game
 
             depth = generator.GetPlayerStartDepth(SceneLoader.LoadOnDepth) + 5;
             player.transform.position = new Vector3(0, -depth);
-
+            meterSymbol = LocalizationManager.Localize("MeterSymbol");
 
             Advertisement.AddListener(this);
             Advertisement.Initialize("3872551", false);
@@ -73,21 +76,21 @@ namespace InGame.Game
         private void Update()
         {
             depth = -player.transform.position.y;
-            depthText.text = Mathf.RoundToInt(depth) + "m";
+            depthText.text = Mathf.RoundToInt(depth) + meterSymbol;
         }
 
         private void HandleLevelGenerators()
         {
             checkpointGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.Checkpoints;
             infiniteGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.Infinity;
-            hardInfiniteGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.RandomInfinity;
+            hardInfiniteGenerator.enabled = SceneLoader.GameType == SceneLoader.LoadGameType.HardInfinity;
 
 
             switch (SceneLoader.GameType)
             {
                 case SceneLoader.LoadGameType.Checkpoints: generator = checkpointGenerator; break;
                 case SceneLoader.LoadGameType.Infinity: generator = infiniteGenerator; break;
-                case SceneLoader.LoadGameType.RandomInfinity: generator = hardInfiniteGenerator; break;
+                case SceneLoader.LoadGameType.HardInfinity: generator = hardInfiniteGenerator; break;
             }
         }
 
@@ -160,17 +163,29 @@ namespace InGame.Game
         {
             isAlive = false;
 
+            if (deathScreen == null)
+            {
+                Debug.LogError("Death screen is null");
+            }
+            else
+            {
+                Debug.Log("Death screen is");
+                Debug.Log(deathScreen.name);
+            }
             deathScreen.SetActive(true);
             deathScreen.GetComponent<Animator>().Play("ShowDeathScreen");
 
             deathScreenDepthText.text = Mathf.RoundToInt(depth) + "m";
-            depthRecordText.text = SecretsManager.Secrets.DepthRecord + "m";
+            depthRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
 
             if (Mathf.RoundToInt(depth) > SecretsManager.Secrets.DepthRecord)
             {
                 newRecordText.SetActive(true);
 
-                SecretsManager.Secrets.DepthRecord = Mathf.RoundToInt(depth);
+                int record = Mathf.RoundToInt(depth);
+                if (SceneLoader.GameType == SceneLoader.LoadGameType.Checkpoints) SecretsManager.Secrets.DepthRecord = record;
+                else if (SceneLoader.GameType == SceneLoader.LoadGameType.Infinity) SecretsManager.Secrets.InfinityDepthRecord = record;
+                else if(SceneLoader.GameType == SceneLoader.LoadGameType.HardInfinity) SecretsManager.Secrets.HardInfinityDepthRecord = record;
                 SecretsManager.Save();
             }
             else
@@ -221,10 +236,13 @@ namespace InGame.Game
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
         {
-            if (showResult != ShowResult.Failed)
+            if (showResult == ShowResult.Finished)
             {
-                isAdWatchedInRun = true;
-                Revive(true);
+                UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                {
+                    isAdWatchedInRun = true;
+                    Revive(true);
+                });
             }
         }
     }

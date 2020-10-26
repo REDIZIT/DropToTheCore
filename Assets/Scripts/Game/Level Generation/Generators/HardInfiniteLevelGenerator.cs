@@ -1,5 +1,6 @@
 using InGame.Game;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InGame.Level.Generation
 {
@@ -15,7 +16,7 @@ namespace InGame.Level.Generation
         protected override void OnDestroyLoop() { }
         private AreaSO GetRandomArea()
         {
-            IEnumerable<AreaSO> availableAreas = GameManager.instance.sodb.patterns;
+            IEnumerable<AreaSO> availableAreas = GameManager.instance.sodb.patterns.SkipWhile(c => c.startDepth < 1000);
 
             return GetRandomArea(availableAreas);
         }

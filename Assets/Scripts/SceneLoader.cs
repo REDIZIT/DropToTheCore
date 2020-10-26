@@ -12,7 +12,7 @@ namespace InGame.SceneLoading
         public static LoadGameType GameType { get; private set; }
         public enum LoadGameType
         {
-            Checkpoints, Infinity, RandomInfinity
+            Checkpoints, Infinity, HardInfinity
         }
 
 
@@ -32,7 +32,7 @@ namespace InGame.SceneLoading
         }
         public static IEnumerator LoadHardInfinityGame()
         {
-            GameType = LoadGameType.RandomInfinity;
+            GameType = LoadGameType.HardInfinity;
             yield return LoadGameScene();
         }
         public static void LoadMenu()

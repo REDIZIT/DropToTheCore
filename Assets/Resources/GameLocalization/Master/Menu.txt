@@ -1,2 +1,3 @@
 Key|English|Russian|French|Spanish|Italian
 Loading|Loading|Загрузка|Chargement|Cargando|Caricamento in corso
+MeterSymbol|m|м|m|m|m

@@ -1,5 +1,8 @@
 using InGame.SceneLoading;
+using InGame.Secrets;
+using InGame.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace InGame.Menu
 {
@@ -10,6 +13,13 @@ namespace InGame.Menu
         public RectTransform loadingScreenMask;
         public Animator loadingScreenAnimator;
 
+        public Text infiniteRecordText, hardInfinityRecordText;
+
+        private void Start()
+        {
+            infiniteRecordText.text = new KilometersString(SecretsManager.Secrets.InfinityDepthRecord);
+            hardInfinityRecordText.text = new KilometersString(SecretsManager.Secrets.HardInfinityDepthRecord);
+        }
         public void OnCheckpointButtonClick()
         {
             depthsScreen.Play("ShowScreen");
