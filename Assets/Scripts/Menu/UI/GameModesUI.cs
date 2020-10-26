@@ -13,10 +13,11 @@ namespace InGame.Menu
         public RectTransform loadingScreenMask;
         public Animator loadingScreenAnimator;
 
-        public Text infiniteRecordText, hardInfinityRecordText;
+        public Text checkpointsRecordText, infiniteRecordText, hardInfinityRecordText;
 
         private void Start()
         {
+            checkpointsRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
             infiniteRecordText.text = new KilometersString(SecretsManager.Secrets.InfinityDepthRecord);
             hardInfinityRecordText.text = new KilometersString(SecretsManager.Secrets.HardInfinityDepthRecord);
         }

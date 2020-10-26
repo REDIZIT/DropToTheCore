@@ -1,3 +1,7 @@
 Key|English|Russian|French|Spanish|Italian
 Loading|Loading|Загрузка|Chargement|Cargando|Caricamento in corso
 MeterSymbol|m|м|m|m|m
+Checkpoints|Checkpoint|Чекпоинты|Checkpoint|Checkpoint|Checkpoint
+Infinite|Infinite|Бесконечный|Interminable|Interminable|Infinito
+Hard Infinity|Infinite hardcore|Бесконечный хардкор|Interminable hardcore|Interminable hardcore|Infinito hardcore
+Select game mode|Select game mode|Выбери игровой режим|Choisissez un mode de jeu|Elige un modo de juego|Scegli una modalità di gioco
