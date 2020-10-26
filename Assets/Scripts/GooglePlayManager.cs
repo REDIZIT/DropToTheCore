@@ -1,5 +1,4 @@
-//using GooglePlayGames;
-//using GooglePlayGames.BasicApi;
+using GooglePlayGames;
 using UnityEngine;
 
 namespace InGame.GooglePlay
@@ -11,20 +10,21 @@ namespace InGame.GooglePlay
 
         public static void Initialize()
         {
-
+            PlayGamesPlatform.Activate();
+            Social.localUser.Authenticate((success) => { if (!success) { Debug.Log("Google Play Social auth result is " + success); } });
         }
 
         public static void ShowAchievements()
         {
-            //Social.ShowAchievementsUI();
+            Social.ShowAchievementsUI();
         }
         public static void GiveTutorialAchievement()
         {
-            //Social.ReportProgress(TUTORIAL_ID, 100, ReportProgressCallback);
+            Social.ReportProgress(TUTORIAL_ID, 100, ReportProgressCallback);
         }
         public static void GiveComingSoonAchievement()
         {
-            //Social.ReportProgress(COMING_SOON_ID, 100, ReportProgressCallback);
+            Social.ReportProgress(COMING_SOON_ID, 100, ReportProgressCallback);
         }
 
         private static void ReportProgressCallback(bool success)

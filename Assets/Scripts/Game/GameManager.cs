@@ -69,7 +69,7 @@ namespace InGame.Game
             player.transform.position = new Vector3(0, -depth);
             meterSymbol = LocalizationManager.Localize("MeterSymbol");
 
-            Advertisement.AddListener(this);
+            //Advertisement.AddListener(this);
             Advertisement.Initialize("3872551", false);
         }
 
@@ -212,7 +212,16 @@ namespace InGame.Game
         {
             if (Advertisement.IsReady())
             {
-                Advertisement.Show("rewardedVideo");
+                ShowOptions op = new ShowOptions()
+                {
+                    resultCallback = (r) =>
+                    {
+                        Debug.Log("Ad result is " + r);
+                        isAdWatchedInRun = true;
+                        Revive(true);
+                    }
+                };
+                Advertisement.Show("rewardedVideo", op);
             }
         }
 

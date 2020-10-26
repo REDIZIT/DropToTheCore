@@ -26,9 +26,7 @@ namespace InGame.SceneLoading
         public static IEnumerator LoadInfinityGame()
         {
             GameType = LoadGameType.Infinity;
-            Debug.Log("Load infinity game");
             yield return LoadGameScene();
-            Debug.Log("Loaded");
         }
         public static IEnumerator LoadHardInfinityGame()
         {

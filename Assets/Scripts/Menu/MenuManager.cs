@@ -1,16 +1,12 @@
 using Assets.SimpleLocalization;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 using InGame.Audio;
 using InGame.GooglePlay;
-using InGame.SceneLoading;
 using InGame.Settings;
 using InGame.UI.Custom;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace InGame.Menu
@@ -28,14 +24,7 @@ namespace InGame.Menu
         private void Awake()
         {
             LoadSettings();
-            //GooglePlayManager.Initialize();
-
-            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
-            PlayGamesPlatform.InitializeInstance(config);
-            PlayGamesPlatform.DebugLogEnabled = true;
-
-            PlayGamesPlatform.Activate();
-
+            GooglePlayManager.Initialize();
         }
 
 
@@ -47,7 +36,6 @@ namespace InGame.Menu
         }
         public void ShowAchievements()
         {
-            Social.localUser.Authenticate((success) => { if (!success) { Debug.Log("Google Play Social auth result is " + success); } });
             GooglePlayManager.ShowAchievements();
         }
         public void OnLanguageBtnClick(string language)
