@@ -27,6 +27,7 @@ namespace InGame.UI.Game
         {
             if (!(GameManager.instance.generator is CheckpointLevelGenerator))
             {
+                gameObject.SetActive(false);
                 enabled = false;
             }
             else
