@@ -292,8 +292,6 @@ namespace IngameDebugConsole
 
 		private void Awake()
 		{
-			gameObject.SetActive(File.Exists(Application.persistentDataPath + "/.dev"));
-
 			// Only one instance of debug console is allowed
 			if( !Instance )
 			{
@@ -380,6 +378,10 @@ namespace IngameDebugConsole
 		{
 			if( Instance != this )
 				return;
+
+
+			gameObject.SetActive(File.Exists(Application.persistentDataPath + "/Data/.dev"));
+
 
 			// Intercept debug entries
 			Application.logMessageReceivedThreaded -= ReceivedLog;

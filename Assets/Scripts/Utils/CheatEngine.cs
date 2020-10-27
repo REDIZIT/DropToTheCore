@@ -1,6 +1,8 @@
 using InGame.Secrets;
 using IngameDebugConsole;
+using System.IO;
 using UnityEditor;
+using UnityEngine;
 
 namespace InGame.Utils
 {
@@ -11,6 +13,7 @@ namespace InGame.Utils
     {
         static CheatEngine()
         {
+            if (!File.Exists(Application.persistentDataPath + "/Data/.dev")) return;
             DebugLogConsole.AddCommand<int>("givecoins", "give coins [count of coins]", GiveCoins);
         }
 
