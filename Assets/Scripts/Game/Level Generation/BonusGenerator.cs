@@ -16,7 +16,7 @@ namespace InGame.Level.Generation
         }
         public void TrySpawnBonus(float lastSpawnedDepth)
         {
-            if (Random.value >= 0.1f) return;
+            if (Random.value >= 0.03f) return;
 
             if (lastSpawnedDepth - lastSpawnedBonusDepth <= 250) return;
 

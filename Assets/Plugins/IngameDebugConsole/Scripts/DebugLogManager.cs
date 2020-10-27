@@ -292,6 +292,8 @@ namespace IngameDebugConsole
 
 		private void Awake()
 		{
+			gameObject.SetActive(File.Exists(Application.persistentDataPath + "/.dev"));
+
 			// Only one instance of debug console is allowed
 			if( !Instance )
 			{

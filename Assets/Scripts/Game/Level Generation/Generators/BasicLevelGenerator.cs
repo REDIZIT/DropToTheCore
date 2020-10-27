@@ -8,6 +8,7 @@ namespace InGame.Level.Generation
     {
         public PlayerController player;
         public BonusGenerator bonusGenerator;
+        public CoinsGenerator coinsGenerator;
 
         /// <summary>These objects will be destroyed after relive</summary>
         public List<GameObject> spawnedObjects = new List<GameObject>();
@@ -21,11 +22,13 @@ namespace InGame.Level.Generation
         private void Awake()
         {
             bonusGenerator.Init(this);
+            coinsGenerator.Init(this);
         }
         private void Update()
         {
             GenerationLoop();
             bonusGenerator.TrySpawnBonus(lastSpawnedDepth);
+            coinsGenerator.TrySpawnCoin(lastSpawnedDepth);
             DestroyLoop();
         }
 

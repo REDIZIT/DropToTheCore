@@ -1,4 +1,5 @@
 using InGame.Game;
+using InGame.Secrets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -33,6 +34,9 @@ namespace InGame
         {
             instance = this;
             rigidbody = GetComponent<Rigidbody2D>();
+
+            rigidbody.gravityScale += rigidbody.gravityScale * SecretsManager.Secrets.GravityPower / 8f;
+            jumpPower += jumpPower * SecretsManager.Secrets.JumpPower / 5f;
         }
 
         private void Update()
