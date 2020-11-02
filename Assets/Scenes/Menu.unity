@@ -10142,6 +10142,7 @@ GameObject:
   - component: {fileID: 849493372}
   - component: {fileID: 849493374}
   - component: {fileID: 849493373}
+  - component: {fileID: 849493375}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -10210,6 +10211,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849493371}
   m_CullTransparentMesh: 0
+--- !u!114 &849493375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849493371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Jump power
 --- !u!1 &859608269
 GameObject:
   m_ObjectHideFlags: 0
@@ -12478,6 +12492,7 @@ GameObject:
   - component: {fileID: 1175384030}
   - component: {fileID: 1175384032}
   - component: {fileID: 1175384031}
+  - component: {fileID: 1175384033}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -12546,6 +12561,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175384029}
   m_CullTransparentMesh: 0
+--- !u!114 &1175384033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175384029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Gravity power
 --- !u!1 &1180549777
 GameObject:
   m_ObjectHideFlags: 0
@@ -16326,8 +16354,8 @@ MonoBehaviour:
   collapseButtonSelectedColor: {r: 0.44117647, g: 0.4346886, b: 0.4346886, a: 1}
   filterButtonsNormalColor: {r: 0.31617647, g: 0.31617647, b: 0.31617647, a: 1}
   filterButtonsSelectedColor: {r: 0.44117647, g: 0.4346886, b: 0.4346886, a: 1}
-  commandSuggestionHighlightStart: <color=orange>
-  commandSuggestionHighlightEnd: </color>
+  commandSuggestionHighlightStart: <color=orange><b>
+  commandSuggestionHighlightEnd: </b></color>
   logWindowTR: {fileID: 1598629369}
   logItemsContainer: {fileID: 1598691193}
   commandSuggestionsContainer: {fileID: 224982530714648021}
@@ -18436,6 +18464,7 @@ GameObject:
   - component: {fileID: 1629948517}
   - component: {fileID: 1629948520}
   - component: {fileID: 1629948519}
+  - component: {fileID: 1629948518}
   m_Layer: 0
   m_Name: PageLabel
   m_TagString: Untagged
@@ -18462,6 +18491,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 480}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1629948518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629948516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalizationKey: Upgrades
 --- !u!114 &1629948519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18495,7 +18537,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade
+  m_Text: Upgrades
 --- !u!222 &1629948520
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using InGame.Audio;
-using InGame.Game;
 using InGame.Secrets;
 using UnityEngine;
 
@@ -11,15 +9,22 @@ namespace InGame.Level
 
         public AudioClip sound;
 
+        private bool isGot;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (isGot) return;
             if (collision.transform.CompareTag("Player"))
             {
+                isGot = true;
+
                 PlayerController.instance.audioSource.PlayOneShot(sound);
 
                 animator.Play("CoinTake");
                 SecretsManager.Secrets.Coins++;
                 SecretsManager.Save();
+
+                Destroy(gameObject, 1);
             }
         }
     }
