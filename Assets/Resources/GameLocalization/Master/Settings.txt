@@ -5,3 +5,4 @@ Graphics|Graphics|Графика|Graphique|Gráficos|Grafica
 Bloom|Bloom|Свечение|Floraison|Florecer|Fioritura
 RenderHighQuality|High render quality|Качественный рендер|Haute qualité de rendu|Alta calidad de renderizado|Elevata qualità di rendering
 Language|Language|Язык|Langue|Idioma|Linguaggio
+Developers|Developers|Разработчики|Les développeurs|Desarrolladores|Sviluppatori

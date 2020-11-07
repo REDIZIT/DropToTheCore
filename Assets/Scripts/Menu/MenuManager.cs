@@ -20,7 +20,6 @@ namespace InGame.Menu
         public CustomToggle bloomToggle;
         public CustomToggle highScaleToggle;
 
-
         private void Awake()
         {
             LoadSettings();

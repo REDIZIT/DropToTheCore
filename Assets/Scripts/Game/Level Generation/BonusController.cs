@@ -33,12 +33,13 @@ namespace InGame.Game.Bonuses
             {
                 if (GameManager.instance.isAlive)
                 {
-                    model.Apply(PlayerController.instance);
+                    if (model.TryApply(PlayerController.instance))
+                    {
+                        isUsed = true;
+                        animator.Play("BonusUse");
 
-                    isUsed = true;
-                    animator.Play("BonusUse");
-
-                    Destroy(gameObject, 1);
+                        Destroy(gameObject, 1);
+                    }
                 }
             }
         }

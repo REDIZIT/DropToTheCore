@@ -9,6 +9,6 @@ namespace InGame.Game.Bonuses
 
         public virtual BonusType BonusType { get; }
 
-        public virtual void Apply(PlayerController player) { }
+        public virtual bool TryApply(PlayerController player) { return false; }
     }
 }

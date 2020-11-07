@@ -175,7 +175,7 @@ namespace InGame.Game
             deathScreen.SetActive(true);
             deathScreen.GetComponent<Animator>().Play("ShowDeathScreen");
 
-            deathScreenDepthText.text = Mathf.RoundToInt(depth) + "m";
+            deathScreenDepthText.text = new KilometersString(Mathf.RoundToInt(depth));
             depthRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
 
             if (Mathf.RoundToInt(depth) > SecretsManager.Secrets.DepthRecord)
