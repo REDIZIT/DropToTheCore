@@ -19,6 +19,7 @@ namespace Assets.SimpleLocalization
             LocalizationManager.LocalizationChanged -= Localize;
         }
 
+
         private void Localize()
         {
             GetComponent<Text>().text = LocalizationManager.Localize(LocalizationKey);

@@ -69,7 +69,7 @@ namespace InGame.Game
             player.transform.position = new Vector3(0, -depth);
             meterSymbol = LocalizationManager.Localize("MeterSymbol");
 
-            //Advertisement.AddListener(this);
+
             Advertisement.Initialize("3872551", false);
         }
 

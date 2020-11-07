@@ -1,4 +1,5 @@
 using InGame.Secrets;
+using InGame.Tutorial;
 using UnityEngine;
 
 namespace InGame.Level
@@ -25,6 +26,8 @@ namespace InGame.Level
                 SecretsManager.Save();
 
                 Destroy(gameObject, 1);
+
+                TutorialPager.Events.OnCoinTaken();
             }
         }
     }

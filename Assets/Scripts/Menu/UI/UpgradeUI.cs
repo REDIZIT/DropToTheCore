@@ -21,6 +21,8 @@ namespace InGame.Menu
                     SecretsManager.Secrets.Coins -= cost;
                     SecretsManager.Secrets.GravityPower = value;
                     SecretsManager.Save();
+
+                    RefreshSliders();
                 }
             };
 
@@ -32,6 +34,8 @@ namespace InGame.Menu
                     SecretsManager.Secrets.Coins -= cost;
                     SecretsManager.Secrets.JumpPower = value;
                     SecretsManager.Save();
+
+                    RefreshSliders();
                 }
             };
         }
@@ -39,6 +43,14 @@ namespace InGame.Menu
         private void Update()
         {
             coinsText.text = SecretsManager.Secrets.Coins.ToString();
+        }
+
+        private void RefreshSliders()
+        {
+            Debug.Log("Refresh Slideres");
+
+            gravitySlider.Refresh();
+            jumpSlider.Refresh();
         }
     }
 }

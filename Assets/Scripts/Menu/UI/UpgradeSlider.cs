@@ -82,15 +82,24 @@ namespace InGame.UI
             minusCostText.gameObject.SetActive(Value > MinValue);
 
             int cost = (Mathf.Abs(Value) + 1) * costMultiplier;
-            if (cost > SecretsManager.Secrets.Coins)
+
+            int absValue = Mathf.Abs(Value);
+            int plusCost = (int) (Mathf.Pow(absValue + 1, Value > 0 ? 2 : 1)) * costMultiplier;
+            int minusCost = (int) (Mathf.Pow(absValue + 1, Value < 0 ? 2 : 1)) * costMultiplier;
+
+            //Debug.Log("Cost is " + cost + " and I have coins = " + SecretsManager.Secrets.Coins);
+            if (plusCost > SecretsManager.Secrets.Coins)
             {
                 plusBtn.interactable = false;
+            }
+            if (minusCost > SecretsManager.Secrets.Coins)
+            {
                 minusBtn.interactable = false;
             }
 
-            int absValue = Mathf.Abs(Value);
-            plusCostText.cost = (Mathf.Pow(absValue + 1, Value > 0 ? 2 : 1)) * costMultiplier;
-            minusCostText.cost = (Mathf.Pow(absValue + 1, Value < 0 ? 2 : 1)) * costMultiplier;
+            
+            plusCostText.cost = plusCost;
+            minusCostText.cost = minusCost;
             plusCostText.Refresh();
             minusCostText.Refresh();
         }

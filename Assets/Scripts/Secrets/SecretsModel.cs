@@ -1,3 +1,5 @@
+using InGame.Tutorial;
+
 namespace InGame.Secrets
 {
     public class SecretsModel
@@ -11,5 +13,9 @@ namespace InGame.Secrets
 
         public int GravityPower { get; set; } = 0;
         public int JumpPower { get; set; } = 0;
+
+
+
+        public TutorialPager.Page PassedTutorials { get; set; } = TutorialPager.Page.None;
     }
 }
