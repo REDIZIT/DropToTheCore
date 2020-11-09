@@ -32,6 +32,8 @@ namespace InGame.Secrets
 
         private static void Load()
         {
+            //LegacyLoad();
+            //return;
             if (File.Exists(filepath))
             {
                 string encrypted = File.ReadAllText(filepath);
@@ -73,46 +75,38 @@ namespace InGame.Secrets
                 
             }
         }
-        //private static void Load()
-        //{
-        //    if (File.Exists(filepath))
-        //    {
-        //        string encrypted = File.ReadAllText(filepath);
-        //        string key = new DirectoryInfo(Application.persistentDataPath).CreationTime.Ticks.ToString();
+        private static void LegacyLoad()
+        {
+            if (File.Exists(filepath))
+            {
+                string encrypted = File.ReadAllText(filepath);
+                string key = new DirectoryInfo(Application.persistentDataPath).CreationTime.Ticks.ToString();
 
-        //        try
-        //        {
-        //            string decrypted = StringCipher.Decrypt(encrypted, key);
-        //            _secrets = JsonConvert.DeserializeObject<SecretsModel>(decrypted);
-        //        }
-        //        catch
-        //        {
-        //            File.Delete(filepath);
-        //            _secrets = new SecretsModel();
-        //        }
+                try
+                {
+                    string decrypted = StringCipher.Decrypt(encrypted, key);
+                    _secrets = JsonConvert.DeserializeObject<SecretsModel>(decrypted);
+                }
+                catch
+                {
+                    File.Delete(filepath);
+                    _secrets = new SecretsModel();
+                }
 
-                
-        //    }
-        //    else
-        //    {
-        //        _secrets = new SecretsModel();
-        //        GoogleCloud.ReadData(GoogleCloud.DEFAULT_SAVE_NAME, (status, data) =>
-        //        {
-        //            if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success)
-        //            {
-        //                string encrypted = Encoding.UTF8.GetString(data);
-        //                string key = new DirectoryInfo(Application.persistentDataPath).CreationTime.Ticks.ToString();
 
-        //                string decrypted = StringCipher.Decrypt(encrypted, key);
-        //                _secrets = JsonConvert.DeserializeObject<SecretsModel>(decrypted);
-        //            }
-        //        });
-        //    }
-        //}
-        
+            }
+            else
+            {
+                _secrets = new SecretsModel();
+            }
+        }
+
 
         public static void Save()
         {
+            //LegacySave();
+            //return;
+
             string parentFolder = new FileInfo(filepath).DirectoryName;
             Directory.CreateDirectory(parentFolder);
 
@@ -125,20 +119,20 @@ namespace InGame.Secrets
 
             UploadCloudSave(Encoding.UTF8.GetBytes(encrypted));
         }
-        //public static void Save()
-        //{
-        //    string parentFolder = new FileInfo(filepath).DirectoryName;
-        //    Directory.CreateDirectory(parentFolder);
+        public static void LegacySave()
+        {
+            string parentFolder = new FileInfo(filepath).DirectoryName;
+            Directory.CreateDirectory(parentFolder);
 
-        //    string content = JsonConvert.SerializeObject(_secrets, Formatting.Indented);
-        //    string key = new DirectoryInfo(Application.persistentDataPath).CreationTime.Ticks.ToString();
+            string content = JsonConvert.SerializeObject(_secrets, Formatting.Indented);
+            string key = new DirectoryInfo(Application.persistentDataPath).CreationTime.Ticks.ToString();
 
 
-        //    string encrypted = StringCipher.Encrypt(content, key);
-        //    File.WriteAllText(filepath, encrypted);
+            string encrypted = StringCipher.Encrypt(content, key);
+            File.WriteAllText(filepath, encrypted);
 
-        //    UploadCloudSave(Encoding.UTF8.GetBytes(encrypted));
-        //}
+            UploadCloudSave(Encoding.UTF8.GetBytes(encrypted));
+        }
 
 
 

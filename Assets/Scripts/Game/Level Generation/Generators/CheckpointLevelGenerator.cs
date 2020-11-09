@@ -145,7 +145,6 @@ namespace InGame.Level.Generation
         public override float GetPlayerStartDepth(float depth)
         {
             float result = GetCurrentCheckpointDepth(depth);
-            Debug.Log("Player start depth is " + result);
             return result;
         }
     }

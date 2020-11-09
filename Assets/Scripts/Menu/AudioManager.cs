@@ -10,6 +10,11 @@ namespace InGame.Audio
         public static AudioManager instance;
         public static AudioSource asource;
 
+
+
+        public AudioClip[] backgroundMusic;
+
+
         private string OVERRIDE_MUSIC_FOLDER;
 
         [System.Obsolete]
@@ -29,9 +34,17 @@ namespace InGame.Audio
                     if (files.Length > 0)
                     {
                         asource.clip = LoadAudio(files[0]);
-                        asource.Play();
                     }
                 }
+                else
+                {
+                    if (backgroundMusic != null && backgroundMusic.Length > 0)
+                    {
+                        asource.clip = backgroundMusic[Random.Range(0, backgroundMusic.Length)];
+                    }
+                }
+
+                asource.Play();
             }
             else
             {
@@ -52,3 +65,19 @@ namespace InGame.Audio
         }
     }
 }
+
+
+
+
+//public class ClassName
+//{
+//    public ClassName()
+//    {
+//        // do smth
+//    }
+
+//    public static GameResult<ClassName> Create(ClassNameParams classNameParams)
+//    {
+//        // как раз таки тут и происходит все что нужно для создания класса?
+//    }
+//}
