@@ -115,8 +115,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041C\u043E\u043D\u0435\u0442\u044B \u043C\u043E\u0436\u043D\u043E \u0442\u0440\u0430\u0442\u0438\u0442\u044C
-    \u043D\u0430 \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0432 \u043C\u0435\u043D\u044E"
+  m_Text: Coins can be spent on improvements in the menu
 --- !u!114 &5969690320779243637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,8 +285,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0422\u044B \u0442\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u043E \u043F\u043E\u043B\u0443\u0447\u0438\u043B
-    \u043C\u043E\u043D\u0435\u0442\u0443"
+  m_Text: 'CoinTakenHeader
+
+'
 --- !u!114 &8471423845390940586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,4 +300,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2404a37f3bd75444aa4ad05d0f228347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalizationKey: CoinTakenHeade
+  LocalizationKey: CoinTakenHeader

@@ -10,7 +10,7 @@ namespace InGame.Game.Bonuses
         private bool isUsed;
 
 
-        private void Update()
+        private void FixedUpdate()
         {
             float noiseX = Mathf.PerlinNoise(transform.position.y / 10f, Time.time / 10f) - 0.5f;
             float noiseY = Mathf.PerlinNoise(transform.position.x / 10f, Time.time / 10f) - 0.5f;

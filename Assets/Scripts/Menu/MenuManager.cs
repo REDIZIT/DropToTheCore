@@ -1,8 +1,10 @@
 using Assets.SimpleLocalization;
 using InGame.Audio;
 using InGame.GooglePlay;
+using InGame.Secrets;
 using InGame.Settings;
 using InGame.UI.Custom;
+using InGame.Utils;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -24,6 +26,7 @@ namespace InGame.Menu
         {
             LoadSettings();
             GooglePlayManager.Initialize();
+            CheatEngine.Initialize();
         }
 
 
@@ -43,6 +46,18 @@ namespace InGame.Menu
             SettingsManager.Save();
             LocalizationManager.Language = language;
         }
+
+
+
+        public void OpenSavesUI()
+        {
+            GoogleCloud.ShowSavesUI((status, data) =>
+            {
+                if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success && data.Length > 0)
+                    SecretsManager.ImportCloudSave(data);
+            }, () => Debug.Log("Save data (do nothing"));
+        }
+
 
 
         private void LoadSettings()
@@ -87,7 +102,6 @@ namespace InGame.Menu
             }
             LocalizationManager.Language = SettingsManager.Settings.Language;
         }
-
         private string GetSupportedSystemLanguage()
         {
             switch (Application.systemLanguage)

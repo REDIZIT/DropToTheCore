@@ -163,20 +163,18 @@ namespace InGame.Game
         {
             isAlive = false;
 
-            if (deathScreen == null)
-            {
-                Debug.LogError("Death screen is null");
-            }
-            else
-            {
-                Debug.Log("Death screen is");
-                Debug.Log(deathScreen.name);
-            }
             deathScreen.SetActive(true);
             deathScreen.GetComponent<Animator>().Play("ShowDeathScreen");
 
             deathScreenDepthText.text = new KilometersString(Mathf.RoundToInt(depth));
-            depthRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
+
+
+            if (SceneLoader.GameType == SceneLoader.LoadGameType.Checkpoints) depthRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
+            else if (SceneLoader.GameType == SceneLoader.LoadGameType.Infinity) depthRecordText.text = new KilometersString(SecretsManager.Secrets.InfinityDepthRecord);
+            else if (SceneLoader.GameType == SceneLoader.LoadGameType.HardInfinity) depthRecordText.text = new KilometersString(SecretsManager.Secrets.HardInfinityDepthRecord);
+
+
+
 
             if (Mathf.RoundToInt(depth) > SecretsManager.Secrets.DepthRecord)
             {

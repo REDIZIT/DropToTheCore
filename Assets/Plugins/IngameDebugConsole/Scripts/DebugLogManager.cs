@@ -380,11 +380,12 @@ namespace IngameDebugConsole
 				return;
 
 
-			gameObject.SetActive(File.Exists(Application.persistentDataPath + "/Data/.dev"));
+            //gameObject.SetActive(File.Exists(Application.persistentDataPath + "/Data/.dev"));
 
 
-			// Intercept debug entries
-			Application.logMessageReceivedThreaded -= ReceivedLog;
+
+            // Intercept debug entries
+            Application.logMessageReceivedThreaded -= ReceivedLog;
 			Application.logMessageReceivedThreaded += ReceivedLog;
 
 			if( receiveLogcatLogsInAndroid )

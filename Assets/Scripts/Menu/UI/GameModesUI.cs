@@ -15,6 +15,10 @@ namespace InGame.Menu
 
         public Text checkpointsRecordText, infiniteRecordText, hardInfinityRecordText;
 
+        private void Awake()
+        {
+            GlobalEvents.onGoogleCloudImportSettings += Start;
+        }
         private void Start()
         {
             checkpointsRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);

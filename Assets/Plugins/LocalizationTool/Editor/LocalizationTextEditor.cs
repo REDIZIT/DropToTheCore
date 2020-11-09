@@ -11,7 +11,14 @@ namespace Localization
         {
             LocalizedText targetComponent = (LocalizedText)target;
 
-            targetComponent.LocalizationKey = EditorGUILayout.TextField("Localization key", targetComponent.LocalizationKey);
+            string newLocalizationKey = EditorGUILayout.TextField("Localization key", targetComponent.LocalizationKey);
+
+            if (targetComponent.LocalizationKey != newLocalizationKey)
+            {
+                targetComponent.LocalizationKey = newLocalizationKey;
+                EditorUtility.SetDirty(targetComponent);
+            }
+            
 
             if (!LocalizationManager.HasLocalization(targetComponent.LocalizationKey))
             {
