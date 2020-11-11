@@ -98,6 +98,7 @@ namespace InGame.GooglePlay
 
         public static void ReportCurrentRunDepth(float depth)
         {
+            if (!IsAuthenticated) return;
             if (depth <= 0) return;
 
 

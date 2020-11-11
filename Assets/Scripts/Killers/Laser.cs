@@ -22,7 +22,7 @@ namespace InGame.Level
 
 
 
-            RaycastHit2D wallHit = hits.FirstOrDefault(c => !c.transform.CompareTag("Player"));
+            RaycastHit2D wallHit = hits.FirstOrDefault(c => c.transform.CompareTag("Untagged") || (!c.transform.CompareTag("Player") && !c.transform.CompareTag("Bonus")));
             if (wallHit.transform == null) return;
 
             beamWidth = Vector2.Distance(transform.position, wallHit.point) / 2f;
