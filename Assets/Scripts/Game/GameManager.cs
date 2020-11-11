@@ -1,4 +1,5 @@
 using Assets.SimpleLocalization;
+using InGame.GooglePlay;
 using InGame.Level;
 using InGame.Level.Generation;
 using InGame.SceneLoading;
@@ -45,14 +46,16 @@ namespace InGame.Game
         public float depth;
 
         public Text depthText;
-        private string meterSymbol;
 
         public bool isAlive = true;
 
 
         [HideInInspector] public CheckpointController currentCheckpoint;
+        
 
+        // One run properties
         private bool isAdWatchedInRun;
+        private float startDepth;
 
 
         public const float WORLD_WIDTH = 32;
@@ -67,7 +70,8 @@ namespace InGame.Game
 
             depth = generator.GetPlayerStartDepth(SceneLoader.LoadOnDepth) + 5;
             player.transform.position = new Vector3(0, -depth);
-            meterSymbol = LocalizationManager.Localize("MeterSymbol");
+
+            startDepth = depth;
 
 
             Advertisement.Initialize("3872551", false);
@@ -76,7 +80,17 @@ namespace InGame.Game
         private void Update()
         {
             depth = -player.transform.position.y;
-            depthText.text = Mathf.RoundToInt(depth) + meterSymbol;
+            depthText.text = new KilometersString(depth);
+
+            if (!isAdWatchedInRun)
+            {
+                GooglePlayManager.ReportCurrentRunDepth(depth - startDepth);
+            }
+
+            if (depth <= -1000)
+            {
+                GooglePlayManager.GiveHeight1kmAchievement();
+            }
         }
 
         private void HandleLevelGenerators()
@@ -109,6 +123,7 @@ namespace InGame.Game
             player.transform.position = newPlayerPosition;
             player.Relive();
 
+            
 
 
             if (!resumeGame)
@@ -117,6 +132,8 @@ namespace InGame.Game
                 isAdWatchedInRun = false;
                 generator.ClearSpawnedObjects();
                 generator.ResetByRevive(currentCheckpoint);
+
+                startDepth = currentCheckpoint.depth;
             }
             else
             {

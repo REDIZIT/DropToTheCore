@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace InGame.Level
 {
+    [ExecuteInEditMode]
     public class SizeablePlatform : MonoBehaviour
     {
         public Vector2 size = new Vector2(-1, -1);
@@ -12,14 +13,26 @@ namespace InGame.Level
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D boxCollider;
 
+        private bool isResizeScheduled;
+
         private void OnValidate()
         {
-            Resize();
+            isResizeScheduled = true;
+            //Resize();
         }
 
         private void Start()
         {
             Resize();
+        }
+
+        private void LateUpdate()
+        {
+            if (isResizeScheduled)
+            {
+                isResizeScheduled = false;
+                Resize();
+            }
         }
 
         public void Resize()
@@ -30,6 +43,7 @@ namespace InGame.Level
             }
 
             if (spriteRenderer == null) GetComponents();
+
             if (size.x < 0 || size.y < 0) ImportSize();
 
             if (spriteRenderer != null) spriteRenderer.size = size;

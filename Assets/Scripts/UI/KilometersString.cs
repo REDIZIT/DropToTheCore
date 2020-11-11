@@ -11,6 +11,11 @@ namespace InGame.UI
         {
             this.meters = meters;
         }
+        public KilometersString(float meters)
+        {
+            this.meters = (int)meters;
+        }
+
 
         public static implicit operator string(KilometersString s)
         {

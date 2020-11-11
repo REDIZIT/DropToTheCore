@@ -10,6 +10,8 @@ namespace InGame.Level
         public HeightBorder border;
         public TextMeshPro depthText, depthTextSmall;
 
+        public float depth;
+
         public bool isClaimed;
 
         private PlayerController player;
@@ -33,6 +35,8 @@ namespace InGame.Level
 
         public void Refresh(float depth)
         {
+            this.depth = depth;
+
             depthText.text = depth + "m";
             depthTextSmall.text = depthText.text;
         }

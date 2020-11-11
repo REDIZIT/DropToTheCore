@@ -25,7 +25,11 @@
 public static class GPGSIds
 {
         public const string achievement_coming_soon = "CgkIo5iH1dYXEAIQAg"; // <GPGSID>
+        public const string achievement_reach_kilometer_height = "CgkIo5iH1dYXEAIQCA"; // <GPGSID>
+        public const string achievement_5km_run = "CgkIo5iH1dYXEAIQBw"; // <GPGSID>
         public const string achievement_lets_start = "CgkIo5iH1dYXEAIQAA"; // <GPGSID>
+        public const string achievement_2km_run = "CgkIo5iH1dYXEAIQBg"; // <GPGSID>
+        public const string achievement_1km_run = "CgkIo5iH1dYXEAIQBQ"; // <GPGSID>
 
 }
 

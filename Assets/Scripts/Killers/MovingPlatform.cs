@@ -30,8 +30,8 @@ namespace InGame.Level
             leftEdge.transform.localPosition = new Vector3(-width / 2f, 0);
             rightEdge.transform.localPosition = new Vector3(width / 2f, 0);
 
-            
-            sliderSprite.size = new Vector2(width, .3f);
+            // Checking
+            //sliderSprite.size = new Vector2(width, .3f);
 
             platformAvailableWidth = width - platform.GetComponent<SizeablePlatform>().size.x;
 

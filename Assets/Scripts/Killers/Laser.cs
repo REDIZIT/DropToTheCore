@@ -36,7 +36,7 @@ namespace InGame.Level
             sh.scale = new Vector3(beam.size.x * 2f, 1f, 1f);
 
             beam?.Resize();
-            if(beamSemiAlpha != null && beamSemiAlpha.transform != null) beamSemiAlpha.Resize();
+            if (beamSemiAlpha != null && beamSemiAlpha.transform != null) beamSemiAlpha.Resize();
         }
     }
 }
