@@ -23,8 +23,10 @@ namespace InGame.Level.Generation
 
             float randomYOffset = Random.Range(2, 40);
 
+            float randomXOffset = Random.Range(-11f, 11f);
+
             GameObject inst = Instantiate(coinPrefab);
-            inst.transform.position = new Vector3(0, -(depth + randomYOffset));
+            inst.transform.position = new Vector3(randomXOffset, -(depth + randomYOffset));
             gen.spawnedObjects.Add(inst);
 
 
