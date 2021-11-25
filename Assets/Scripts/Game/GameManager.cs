@@ -1,4 +1,5 @@
 using Assets.SimpleLocalization;
+using InGame.Camera;
 using InGame.GooglePlay;
 using InGame.Level;
 using InGame.Level.Generation;
@@ -13,6 +14,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace InGame.Game
 {
@@ -57,10 +59,17 @@ namespace InGame.Game
         private bool isAdWatchedInRun;
         private float startDepth;
 
+        // DI
+        private new CameraController camera;
+
 
         public const float WORLD_WIDTH = 32;
 
-
+        [Inject]
+        private void Construct(CameraController camera)
+        {
+            this.camera = camera;
+        }
         private void Awake()
         {
             instance = this;
@@ -121,9 +130,9 @@ namespace InGame.Game
                         currentCheckpoint.transform.position - new Vector3(0, 20, 0);
 
             player.transform.position = newPlayerPosition;
-            player.Relive();
+            player.Revive();
 
-            
+            camera.Reset();
 
 
             if (!resumeGame)

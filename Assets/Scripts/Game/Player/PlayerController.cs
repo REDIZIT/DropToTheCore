@@ -68,7 +68,7 @@ namespace InGame
             audioSource.PlayOneShot(jumpAudioClip);
         }
 
-        public void Relive()
+        public void Revive()
         {
             rigidbody.isKinematic = false;
             rigidbody.velocity = Vector2.zero;

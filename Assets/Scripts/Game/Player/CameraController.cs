@@ -7,12 +7,20 @@ namespace InGame.Camera
     {
         [SerializeField] private PlayerController player;
         [SerializeField] private float offset = -12;
-        [SerializeField] private float cameraMinVerticalOffset = 4;
+
+        [Tooltip("Height which camera won't be following player after jump")]
+        [SerializeField] private float cameraMinVerticalOffset = 10;
 
         private float currentVelocityOffset;
 
         private float prevJumpY;
         private float flatEdgeY = float.MinValue;
+
+        /// <summary>Player velocity camera offset factor (than more, then less effect)</summary>
+        private const float VELOCITY_FACTOR = 50;
+        /// <summary>Velocity camera offset change factor (than more, then lower speed)</summary>
+        private const float VELOCITY_INCREASE_FACTOR = 25;
+
 
         private void Awake()
         {
@@ -20,29 +28,49 @@ namespace InGame.Camera
         }
         private void Update()
         {
-            float velocity = player.rigidbody.velocity.y;
-            float velocityOffset = velocity / 50f;
-
-            currentVelocityOffset += (velocityOffset - currentVelocityOffset) * 0.04f;
-
-
-
             float playerY = player.transform.position.y;
 
+            // Select highest Y
+            // flatEdgeY - camera fix point after player jump
+            // If player is higher than defined, then follow camera to player
+            // Else, leave camera at same Y (flatEdgeY)
             flatEdgeY = Mathf.Max(flatEdgeY, playerY - cameraMinVerticalOffset);
 
             float cameraY;
 
+            // If player higher flatEdgeY (camera fix point)
             if (playerY > flatEdgeY)
             {
-                cameraY = flatEdgeY + offset;
+                // Stop following, stay on same Y, and go higher sometimes
+                cameraY = flatEdgeY;
             }
             else
             {
-                cameraY = playerY + offset;
+                // Follow player down
+                cameraY = playerY;
             }
 
+
+
+            // Apply other effects
+            currentVelocityOffset += (player.rigidbody.velocity.y - currentVelocityOffset) / VELOCITY_INCREASE_FACTOR;
+
+            cameraY += offset - currentVelocityOffset / VELOCITY_FACTOR;
+
+
+
             transform.position = new Vector3(0, cameraY, transform.position.z);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawCube(new Vector3(0, flatEdgeY), new Vector3(40, 0.2f));
+        }
+
+        public void Reset()
+        {
+            flatEdgeY = player.transform.position.y;
         }
 
         private void OnPlayerJump()
