@@ -104,11 +104,7 @@ namespace InGame
             if (!GameManager.instance.isAlive) return;
             if (shield.currentInvulnerabilityTime > 0) return;
 
-            if (shield.hasShield)
-            {
-                shield.Use();
-            }
-            else
+            if (shield.TryUse() == false)
             {
                 deathParticles.Play();
                 deathAnimator.Play("DeathCircleEffect");

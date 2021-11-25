@@ -190,8 +190,8 @@ namespace InGame.Game
 
         private IEnumerator IEResumedRevive()
         {
-            player.shield.hasShield = true;
-            player.shield.Use();
+            player.shield.Charge();
+            player.shield.TryUse();
 
             yield return StartCoroutine(Unpause());
         }

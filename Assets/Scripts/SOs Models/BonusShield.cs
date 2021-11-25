@@ -9,8 +9,6 @@ namespace InGame.Game.Bonuses
 
         public override bool TryApply(PlayerController player)
         {
-            if (player.shield.hasShield) return false;
-
             player.shield.Charge();
             return true;
         }

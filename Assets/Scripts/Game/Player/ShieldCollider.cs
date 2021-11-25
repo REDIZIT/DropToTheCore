@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace InGame.Game
@@ -6,15 +7,20 @@ namespace InGame.Game
     [RequireComponent(typeof(SpriteRenderer))]
     public class ShieldCollider : MonoBehaviour
     {
-        public Animator animator;
-        public bool hasShield;
-
         public float currentInvulnerabilityTime;
 
+
+        [SerializeField] private Animator animator;
+        [SerializeField] private SpriteRenderer timeLeftGroup;
+        [SerializeField] private TextMeshPro timeLeftText;
+
+        private bool hasShield;
+        private float useTimeLeft;
         private SpriteRenderer sprite;
 
         private const float SHIELD_SIZE = 60;
         private const float ANIMATION_TIME = 0.35f;
+        private const float DEFAULT_USE_TIME = 10;
 
 
         private void Awake()
@@ -24,20 +30,31 @@ namespace InGame.Game
         private void Update()
         {
             if (currentInvulnerabilityTime > 0) currentInvulnerabilityTime -= Time.deltaTime;
+
+            if (useTimeLeft > 0) useTimeLeft -= Time.deltaTime;
+            else hasShield = false;
+
+            timeLeftText.alpha = useTimeLeft > 0 ? 1 : 0;
+            timeLeftText.text = Mathf.CeilToInt(useTimeLeft).ToString();
+            timeLeftGroup.color = new Color(timeLeftGroup.color.r, timeLeftGroup.color.g, timeLeftGroup.color.b, timeLeftText.alpha);
         }
         public void Charge()
         {
             hasShield = true;
-            animator.Play("ShieldCharge");
+            useTimeLeft = DEFAULT_USE_TIME;
         }
-        public void Use()
+        public bool TryUse()
         {
+            if (hasShield == false) return false;
             StartCoroutine(IEUseShield());
+            return true;
         }
 
         private IEnumerator IEUseShield()
         {
             hasShield = false;
+            useTimeLeft = 0;
+
             currentInvulnerabilityTime = ANIMATION_TIME;
 
             while(currentInvulnerabilityTime > 0)
