@@ -32,8 +32,6 @@ namespace InGame.Secrets
 
         private static void Load()
         {
-            //LegacyLoad();
-            //return;
             if (File.Exists(filepath))
             {
                 string encrypted = File.ReadAllText(filepath);
@@ -48,13 +46,10 @@ namespace InGame.Secrets
                     {
                         decrypted = StringCipher.Decrypt(encrypted, key);
                         _secrets = JsonConvert.DeserializeObject<SecretsModel>(decrypted);
-                        Debug.Log("Decrypted as new");
                     }
                     catch
                     {
                         decrypted = StringCipher.Decrypt(encrypted, altKey);
-                        Debug.Log("Decrypted as alt");
-
                     }
                     finally
                     {
@@ -75,38 +70,9 @@ namespace InGame.Secrets
                 
             }
         }
-        private static void LegacyLoad()
-        {
-            if (File.Exists(filepath))
-            {
-                string encrypted = File.ReadAllText(filepath);
-                string key = new DirectoryInfo(Application.persistentDataPath).CreationTime.Ticks.ToString();
-
-                try
-                {
-                    string decrypted = StringCipher.Decrypt(encrypted, key);
-                    _secrets = JsonConvert.DeserializeObject<SecretsModel>(decrypted);
-                }
-                catch
-                {
-                    File.Delete(filepath);
-                    _secrets = new SecretsModel();
-                }
-
-
-            }
-            else
-            {
-                _secrets = new SecretsModel();
-            }
-        }
-
 
         public static void Save()
         {
-            //LegacySave();
-            //return;
-
             string parentFolder = new FileInfo(filepath).DirectoryName;
             Directory.CreateDirectory(parentFolder);
 
