@@ -6,6 +6,7 @@ using InGame.SceneLoading;
 using InGame.Secrets;
 using InGame.Settings;
 using InGame.UI;
+using InGame.UI.Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -38,6 +39,7 @@ namespace InGame.Game
 
         [Header("Pause screen")]
         public Animator pauseScreen;
+        [SerializeField] private UnpauseCountdownText countdownText;
 
         [Header("Ads")]
         public Button watchAdBtn;
@@ -99,6 +101,19 @@ namespace InGame.Game
             {
                 GooglePlayManager.GiveHeight1kmAchievement();
             }
+
+            if (SettingsManager.Settings.enableFingerPause && Input.touches.Length >= 2)
+            {
+                Pause();
+            }
+        }
+
+        private void OnApplicationFocus(bool focus)
+        {
+            if (focus == false)
+            {
+                Pause();
+            }
         }
 
         private void HandleLevelGenerators()
@@ -148,20 +163,7 @@ namespace InGame.Game
                 StartCoroutine(IEResumedRevive());
             }
         }
-        private IEnumerator IEResumedRevive()
-        {
-            player.shield.hasShield = true;
-            player.shield.Use();
-
-            Time.timeScale = 0.5f;
-
-            while (Time.timeScale < 1)
-            {
-                yield return new WaitForEndOfFrame();
-                Time.timeScale += (0.5f - (Time.timeScale - 0.5f)) * 0.01f;
-            }
-            Time.timeScale = 1;
-        }
+        
 
 
         public void Pause()
@@ -170,10 +172,14 @@ namespace InGame.Game
             pauseScreen.gameObject.SetActive(true);
             pauseScreen.Play("ShowPauseScreen");
         }
-        public void Unpause()
+        public void ClickUnpause()
         {
-            Time.timeScale = 1;
+            StartCoroutine(Unpause());
+        }
+        public void ClickRestart()
+        {
             pauseScreen.gameObject.SetActive(false);
+            Revive();
         }
         public void GoToMenu()
         {
@@ -181,6 +187,25 @@ namespace InGame.Game
             SceneManager.LoadScene("Menu");
         }
 
+
+        private IEnumerator IEResumedRevive()
+        {
+            player.shield.hasShield = true;
+            player.shield.Use();
+
+            yield return StartCoroutine(Unpause());
+        }
+        private IEnumerator Unpause()
+        {
+            pauseScreen.gameObject.SetActive(false);
+
+            Time.timeScale = 0;
+
+            countdownText.StartCountdown();
+            yield return new WaitUntil(() => countdownText.IsCounted);
+
+            Time.timeScale = 1;
+        }
 
 
 

@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 namespace InGame.Game
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class ShieldCollider : MonoBehaviour
     {
         public Animator animator;
@@ -9,7 +11,16 @@ namespace InGame.Game
 
         public float currentInvulnerabilityTime;
 
+        private SpriteRenderer sprite;
 
+        private const float SHIELD_SIZE = 60;
+        private const float ANIMATION_TIME = 0.35f;
+
+
+        private void Awake()
+        {
+            sprite = GetComponent<SpriteRenderer>();
+        }
         private void Update()
         {
             if (currentInvulnerabilityTime > 0) currentInvulnerabilityTime -= Time.deltaTime;
@@ -21,17 +32,35 @@ namespace InGame.Game
         }
         public void Use()
         {
-            hasShield = false;
-            currentInvulnerabilityTime = 1;
-            animator.Play("ShieldUse");
+            StartCoroutine(IEUseShield());
         }
 
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private IEnumerator IEUseShield()
         {
-            if (collision.CompareTag("Killer"))
+            hasShield = false;
+            currentInvulnerabilityTime = ANIMATION_TIME;
+
+            while(currentInvulnerabilityTime > 0)
             {
-                Destroy(collision.gameObject);
+                currentInvulnerabilityTime -= Time.unscaledDeltaTime;
+
+                float t = currentInvulnerabilityTime / ANIMATION_TIME;
+                transform.localScale = 2 * Mathf.Lerp(2, SHIELD_SIZE, 1 - t) * Vector3.one;
+
+                Color clr = sprite.color;
+                clr.a = t;
+                sprite.color = clr;
+
+
+                foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, SHIELD_SIZE * t))
+                {
+                    if (collider.CompareTag("Killer"))
+                    {
+                        Destroy(collider.gameObject);
+                    }
+                }
+
+                yield return null;
             }
         }
     }

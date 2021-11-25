@@ -42,7 +42,7 @@ namespace InGame
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && Time.timeScale != 0)
             {
                 if ((GameManager.instance == null || GameManager.instance.isAlive) && canMove)
                 {

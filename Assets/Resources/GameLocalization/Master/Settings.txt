@@ -6,3 +6,4 @@ Bloom|Bloom|Свечение|Floraison|Florecer|Fioritura
 RenderHighQuality|High render quality|Качественный рендер|Haute qualité de rendu|Alta calidad de renderizado|Elevata qualità di rendering
 Language|Language|Язык|Langue|Idioma|Linguaggio
 Developers|Developers|Разработчики|Les développeurs|Desarrolladores|Sviluppatori
+FingerPause|Finger pause\n<size=34>Pause game on second finger touch</size>|Пауза пальцем\n<size=34>Пауза по нажатии вторым пальцем</size>|Pause du doigt\n<size=34>Pause du deuxième doigt</size>|Pausa con el dedo\n<size=34>Pausar el segundo toque con el dedo</size>|Dito in pausa\n<size=34>Pausa secondo dito Tocca</size>

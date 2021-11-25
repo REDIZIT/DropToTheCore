@@ -15,12 +15,13 @@ namespace InGame.Menu
 {
     public class MenuManager : MonoBehaviour
     {
-        public Volume postProcessingVolume;
+        [SerializeField] private Volume postProcessingVolume;
 
         [Header("Settings")]
-        public Slider musicVolumeSlider;
-        public CustomToggle bloomToggle;
-        public CustomToggle highScaleToggle;
+        [SerializeField] private Slider musicVolumeSlider;
+        [SerializeField] private CustomToggle bloomToggle;
+        [SerializeField] private CustomToggle highScaleToggle;
+        [SerializeField] private CustomToggle fingerPauseToggle;
 
         private void Awake()
         {
@@ -91,6 +92,14 @@ namespace InGame.Menu
                 SettingsManager.Save();
 
                 (GraphicsSettings.renderPipelineAsset as UniversalRenderPipelineAsset).renderScale = isOn ? 1 : 0.75f;
+            };
+
+
+            fingerPauseToggle.SetIsOnWithoutAnimation(SettingsManager.Settings.enableFingerPause);
+            fingerPauseToggle.OnStateChanged += (isOn) =>
+            {
+                SettingsManager.Settings.enableFingerPause = isOn;
+                SettingsManager.Save();
             };
 
 
