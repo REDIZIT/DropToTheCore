@@ -1,4 +1,3 @@
-using Assets.SimpleLocalization;
 using InGame.Camera;
 using InGame.GooglePlay;
 using InGame.Level;
@@ -142,7 +141,7 @@ namespace InGame.Game
                 generator.ClearSpawnedObjects();
                 generator.ResetByRevive(currentCheckpoint);
 
-                startDepth = currentCheckpoint.depth;
+                startDepth = currentCheckpoint == null ? 0 : currentCheckpoint.depth;
             }
             else
             {
@@ -193,23 +192,16 @@ namespace InGame.Game
             deathScreen.GetComponent<Animator>().Play("ShowDeathScreen");
 
             deathScreenDepthText.text = new KilometersString(Mathf.RoundToInt(depth));
-
-
-            if (SceneLoader.GameType == SceneLoader.LoadGameType.Checkpoints) depthRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
-            else if (SceneLoader.GameType == SceneLoader.LoadGameType.Infinity) depthRecordText.text = new KilometersString(SecretsManager.Secrets.InfinityDepthRecord);
-            else if (SceneLoader.GameType == SceneLoader.LoadGameType.HardInfinity) depthRecordText.text = new KilometersString(SecretsManager.Secrets.HardInfinityDepthRecord);
+            depthRecordText.text = new KilometersString(SecretsManager.Secrets.Records.GetRecord(SceneLoader.GameType));
 
 
 
 
-            if (Mathf.RoundToInt(depth) > SecretsManager.Secrets.DepthRecord)
+            if (SecretsManager.Secrets.Records.IsRecord(SceneLoader.GameType, depth))
             {
                 newRecordText.SetActive(true);
 
-                int record = Mathf.RoundToInt(depth);
-                if (SceneLoader.GameType == SceneLoader.LoadGameType.Checkpoints) SecretsManager.Secrets.DepthRecord = record;
-                else if (SceneLoader.GameType == SceneLoader.LoadGameType.Infinity) SecretsManager.Secrets.InfinityDepthRecord = record;
-                else if(SceneLoader.GameType == SceneLoader.LoadGameType.HardInfinity) SecretsManager.Secrets.HardInfinityDepthRecord = record;
+                SecretsManager.Secrets.Records.UpdateRecord(SceneLoader.GameType, Mathf.RoundToInt(depth));
                 SecretsManager.Save();
             }
             else

@@ -21,9 +21,9 @@ namespace InGame.Menu
         }
         private void Start()
         {
-            checkpointsRecordText.text = new KilometersString(SecretsManager.Secrets.DepthRecord);
-            infiniteRecordText.text = new KilometersString(SecretsManager.Secrets.InfinityDepthRecord);
-            hardInfinityRecordText.text = new KilometersString(SecretsManager.Secrets.HardInfinityDepthRecord);
+            checkpointsRecordText.text = new KilometersString(SecretsManager.Secrets.Records.GetRecord(SceneLoader.LoadGameType.Checkpoints));
+            infiniteRecordText.text = new KilometersString(SecretsManager.Secrets.Records.GetRecord(SceneLoader.LoadGameType.Infinity));
+            hardInfinityRecordText.text = new KilometersString(SecretsManager.Secrets.Records.GetRecord(SceneLoader.LoadGameType.HardInfinity));
         }
         public void OnCheckpointButtonClick()
         {

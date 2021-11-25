@@ -42,10 +42,7 @@ namespace InGame.Utils
             {
                 SceneLoader.LoadGameType gamemode = (SceneLoader.LoadGameType)gamemodeId;
 
-                if (gamemode == SceneLoader.LoadGameType.Checkpoints) SecretsManager.Secrets.DepthRecord = depth;
-                else if (gamemode == SceneLoader.LoadGameType.Infinity) SecretsManager.Secrets.InfinityDepthRecord = depth;
-                else if (gamemode == SceneLoader.LoadGameType.HardInfinity) SecretsManager.Secrets.HardInfinityDepthRecord = depth;
-
+                SecretsManager.Secrets.Records.UpdateRecord(gamemode, depth, true);
                 SecretsManager.Save();
             }
         }

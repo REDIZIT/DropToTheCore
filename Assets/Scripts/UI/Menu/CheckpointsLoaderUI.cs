@@ -25,11 +25,13 @@ namespace InGame.Menu
         {
             float distance = CheckpointLevelGenerator.CHECKPOINTS_DISTANCE;
 
-            topItem.Refresh(Mathf.FloorToInt(SecretsManager.Secrets.DepthRecord / distance) * distance, OnDepthItemClicked);
-            recordText.text = LocalizationManager.Localize("YourRecordIs") + " " + SecretsManager.Secrets.DepthRecord + "m";
+            int recordDepth = SecretsManager.Secrets.Records.GetRecord(SceneLoader.LoadGameType.Checkpoints);
+
+            topItem.Refresh(Mathf.FloorToInt(recordDepth / distance) * distance, OnDepthItemClicked);
+            recordText.text = LocalizationManager.Localize("YourRecordIs") + " " + recordDepth + "m";
 
 
-            int checkpoints = Mathf.FloorToInt(SecretsManager.Secrets.DepthRecord / distance);
+            int checkpoints = Mathf.FloorToInt(recordDepth / distance);
             if (checkpoints >= 1)
             {
                 List<float> depthes = new List<float>();
