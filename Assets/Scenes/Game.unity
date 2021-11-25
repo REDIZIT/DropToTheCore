@@ -1427,6 +1427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 237946415}
   offset: -12
+  cameraMinVerticalOffset: 10
 --- !u!82 &519420035
 AudioSource:
   m_ObjectHideFlags: 0

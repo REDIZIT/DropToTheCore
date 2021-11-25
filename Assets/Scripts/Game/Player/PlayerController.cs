@@ -1,5 +1,6 @@
 using InGame.Game;
 using InGame.Secrets;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,7 +26,7 @@ namespace InGame
 
 
         public ShieldCollider shield;
-        
+        public Action onJump;
 
 
         [HideInInspector] public new Rigidbody2D rigidbody;
@@ -51,12 +52,14 @@ namespace InGame
         }
         private void Jump()
         {
+            onJump?.Invoke();
+
             float percents = Input.mousePosition.x / (float)Screen.width;
             float normalized = percents - 0.5f;
 
-            rigidbody.velocity = Vector2.up * jumpPower * (1 / 60f);
+            rigidbody.velocity = (1 / 60f) * jumpPower * Vector2.up;
 
-            rigidbody.velocity += Vector2.right * normalized * strafePower * (1 / 60f);
+            rigidbody.velocity += (1 / 60f) * normalized * strafePower * Vector2.right;
 
 
             GameObject effect = Instantiate(jumpEffectPrefab);
