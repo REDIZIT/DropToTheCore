@@ -11,6 +11,7 @@ namespace InGame.Secrets
 
         public int GravityPower { get; set; } = 0;
         public int JumpPower { get; set; } = 0;
+        public int ShieldLevel { get; set; } = 0;
 
 
 

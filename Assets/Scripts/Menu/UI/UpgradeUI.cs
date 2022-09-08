@@ -8,7 +8,7 @@ namespace InGame.Menu
     public class UpgradeUI : MonoBehaviour
     {
         public Text coinsText;
-        public UpgradeSlider gravitySlider, jumpSlider;
+        public UpgradeSlider gravitySlider, jumpSlider, shieldSlider;
 
 
         private void Start()
@@ -38,6 +38,19 @@ namespace InGame.Menu
                     RefreshSliders();
                 }
             };
+
+            shieldSlider.SetValueWithoutNotify(SecretsManager.Secrets.ShieldLevel);
+            shieldSlider.OnValueChanged += (value, cost) =>
+            {
+                if (SecretsManager.Secrets.Coins >= cost)
+                {
+                    SecretsManager.Secrets.Coins -= cost;
+                    SecretsManager.Secrets.ShieldLevel = value;
+                    SecretsManager.Save();
+
+                    RefreshSliders();
+                }
+            };
         }
 
         private void Update()
@@ -47,10 +60,9 @@ namespace InGame.Menu
 
         private void RefreshSliders()
         {
-            Debug.Log("Refresh Slideres");
-
             gravitySlider.Refresh();
             jumpSlider.Refresh();
+            shieldSlider.Refresh();
         }
     }
 }

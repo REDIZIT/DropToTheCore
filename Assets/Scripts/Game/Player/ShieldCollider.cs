@@ -1,3 +1,4 @@
+using InGame.Secrets;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace InGame.Game
 
         private const float SHIELD_SIZE = 60;
         private const float ANIMATION_TIME = 0.35f;
-        private const float DEFAULT_USE_TIME = 10;
+        private const float SHIELD_DEFAULT_TIME = 20;
 
 
         private void Awake()
@@ -41,7 +42,7 @@ namespace InGame.Game
         public void Charge()
         {
             hasShield = true;
-            useTimeLeft = DEFAULT_USE_TIME;
+            useTimeLeft = SHIELD_DEFAULT_TIME + SecretsManager.Secrets.ShieldLevel * 5;
         }
         public bool TryUse()
         {

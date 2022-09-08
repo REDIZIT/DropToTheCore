@@ -25,6 +25,8 @@ namespace InGame.Menu
 
         private void Awake()
         {
+            Application.targetFrameRate = 120;
+
             LoadSettings();
             GooglePlayManager.Initialize();
             CheatEngine.Initialize();

@@ -16,7 +16,7 @@ namespace InGame.Level.Generation
         }
         public void TrySpawnBonus(float lastSpawnedDepth)
         {
-            if (Random.value >= 0.015f) return;
+            if (Random.value >= 0.015f - Secrets.SecretsManager.Secrets.ShieldLevel * 0.002f) return;
 
             if (lastSpawnedDepth - lastSpawnedBonusDepth <= 250) return;
 
