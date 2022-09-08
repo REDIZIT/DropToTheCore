@@ -10,6 +10,8 @@ namespace InGame
     {
         public static PlayerController instance;
 
+        public float Depth => -transform.position.y;
+
         public float jumpPower;
         public float strafePower;
         public bool canMove = true;

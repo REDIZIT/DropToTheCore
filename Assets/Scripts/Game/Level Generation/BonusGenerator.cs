@@ -9,6 +9,7 @@ namespace InGame.Level.Generation
         private BasicLevelGenerator generator;
 
         private float lastSpawnedBonusDepth;
+        private float nextSpawnBonusDepth;
 
         public void Init(BasicLevelGenerator generator)
         {
@@ -16,15 +17,22 @@ namespace InGame.Level.Generation
         }
         public void TrySpawnBonus(float lastSpawnedDepth)
         {
-            if (Random.value >= 0.015f - Secrets.SecretsManager.Secrets.ShieldLevel * 0.002f) return;
+            if (generator.player.Depth >= nextSpawnBonusDepth)
+            {
+                SpawnBonus(lastSpawnedDepth);
 
-            if (lastSpawnedDepth - lastSpawnedBonusDepth <= 250) return;
+                nextSpawnBonusDepth += 450 + Secrets.SecretsManager.Secrets.ShieldLevel * 100 + Random.Range(0, 100);
+                Debug.Log("nextSpawnBonusDepth: " + nextSpawnBonusDepth);
+            }
+        }
 
+        private void SpawnBonus(float minDepthToSpawn)
+        {
             Bonus bonus = GameManager.instance.sodb.bonuses[Random.Range(0, GameManager.instance.sodb.bonuses.Count - 1)];
 
 
             float randomX = Random.Range(-GameManager.WORLD_WIDTH / 2f / 1.5f, GameManager.WORLD_WIDTH / 2f / 1.5f);
-            float height = lastSpawnedDepth - Random.Range(0.5f, 10);
+            float height = minDepthToSpawn - Random.Range(0.5f, 10);
             lastSpawnedBonusDepth = height;
 
 
