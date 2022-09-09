@@ -8,12 +8,13 @@ namespace InGame.Level.Generation
     {
         private BasicLevelGenerator generator;
 
-        private float lastSpawnedBonusDepth;
         private float nextSpawnBonusDepth;
 
         public void Init(BasicLevelGenerator generator)
         {
             this.generator = generator;
+            nextSpawnBonusDepth = generator.player.Depth;
+            CalculateNextDepth();
         }
         public void TrySpawnBonus(float lastSpawnedDepth)
         {
@@ -21,8 +22,7 @@ namespace InGame.Level.Generation
             {
                 SpawnBonus(lastSpawnedDepth);
 
-                nextSpawnBonusDepth += 450 + Secrets.SecretsManager.Secrets.ShieldLevel * 100 + Random.Range(0, 100);
-                Debug.Log("nextSpawnBonusDepth: " + nextSpawnBonusDepth);
+                CalculateNextDepth();
             }
         }
 
@@ -33,7 +33,6 @@ namespace InGame.Level.Generation
 
             float randomX = Random.Range(-GameManager.WORLD_WIDTH / 2f / 1.5f, GameManager.WORLD_WIDTH / 2f / 1.5f);
             float height = minDepthToSpawn - Random.Range(0.5f, 10);
-            lastSpawnedBonusDepth = height;
 
 
             GameObject inst = Instantiate(bonus.prefab);
@@ -41,6 +40,10 @@ namespace InGame.Level.Generation
             generator.spawnedObjects.Add(inst);
 
             inst.GetComponent<BonusController>().model = bonus;
+        }
+        private void CalculateNextDepth()
+        {
+            nextSpawnBonusDepth += 450 + Secrets.SecretsManager.Secrets.ShieldLevel * 100 + Random.Range(0, 100);
         }
     }
 }

@@ -6,8 +6,9 @@ namespace InGame.Level
     [ExecuteInEditMode]
     public class Laser : MonoBehaviour
     {
-        public SizeablePlatform beam, beamSemiAlpha;
-        public ParticleSystem particles;
+        [SerializeField] private SizeablePlatform beam, beamSemiAlpha;
+        [SerializeField] private ParticleSystem particles;
+        [SerializeField] private Transform impactCircle;
 
         public float beamWidth;
 
@@ -24,6 +25,11 @@ namespace InGame.Level
 
             RaycastHit2D wallHit = hits.FirstOrDefault(c => c.transform.CompareTag("Untagged") || (!c.transform.CompareTag("Player") && !c.transform.CompareTag("Bonus")));
             if (wallHit.transform == null) return;
+
+
+            impactCircle.position = wallHit.point + new Vector2(Random.Range(-0.05f, 0.05f), 0);
+
+
 
             beamWidth = Vector2.Distance(transform.position, wallHit.point) / 2f;
 
