@@ -16,7 +16,6 @@ namespace Localization
             if (targetComponent.LocalizationKey != newLocalizationKey)
             {
                 targetComponent.LocalizationKey = newLocalizationKey;
-                EditorUtility.SetDirty(targetComponent);
             }
             
 
