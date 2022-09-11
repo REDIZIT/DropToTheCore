@@ -38,8 +38,7 @@ namespace InGame
             instance = this;
             rigidbody = GetComponent<Rigidbody2D>();
 
-            rigidbody.gravityScale += rigidbody.gravityScale * SecretsManager.Secrets.GravityPower / 8f;
-            jumpPower += jumpPower * SecretsManager.Secrets.JumpPower / 5f;
+            InitStats();
         }
 
         private void Update()
@@ -51,6 +50,11 @@ namespace InGame
                     Jump();
                 }
             }
+        }
+        private void InitStats()
+        {
+            rigidbody.gravityScale = 8 + rigidbody.gravityScale * SecretsManager.Secrets.GravityPower / 8f;
+            jumpPower = 1000 + 1000 * SecretsManager.Secrets.JumpPower / 5f;
         }
         private void Jump()
         {
@@ -77,6 +81,8 @@ namespace InGame
             spriteRenderer.enabled = true;
             deathParticles.Clear();
             trail.Clear();
+
+            InitStats();
         }
 
 

@@ -4,23 +4,21 @@ using UnityEngine;
 
 namespace InGame.Level.Generation
 {
-    public class BonusGenerator : MonoBehaviour
+    public class BonusGenerator : Generator
     {
-        private BasicLevelGenerator generator;
-
         private float nextSpawnBonusDepth;
 
-        public void Init(BasicLevelGenerator generator)
+        protected override void OnInit()
         {
-            this.generator = generator;
             nextSpawnBonusDepth = generator.player.Depth;
             CalculateNextDepth();
         }
-        public void Reset()
+        public override void OnRevive()
         {
-            nextSpawnBonusDepth = generator.player.Depth;
+            OnInit();
         }
-        public void TrySpawnBonus(float lastSpawnedDepth)
+
+        public override void OnUpdate(float lastSpawnedDepth)
         {
             if (generator.player.Depth >= nextSpawnBonusDepth)
             {

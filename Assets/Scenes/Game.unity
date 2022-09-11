@@ -2411,6 +2411,7 @@ GameObject:
   - component: {fileID: 1001482114}
   - component: {fileID: 1001482113}
   - component: {fileID: 1001482115}
+  - component: {fileID: 1001482116}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2480,6 +2481,7 @@ MonoBehaviour:
   player: {fileID: 237946415}
   bonusGenerator: {fileID: 1001482113}
   coinsGenerator: {fileID: 1001482115}
+  zonesGenerator: {fileID: 1001482116}
   spawnedObjects: []
   checkpointPrefab: {fileID: 240185401582248522, guid: 9843e9097de7e01429882837a6bd01ea, type: 3}
   lavaPrefab: {fileID: 210443010460799286, guid: 8a42c255a04ac594ea95d0da80505ad2, type: 3}
@@ -2498,6 +2500,7 @@ MonoBehaviour:
   player: {fileID: 237946415}
   bonusGenerator: {fileID: 1001482113}
   coinsGenerator: {fileID: 1001482115}
+  zonesGenerator: {fileID: 1001482116}
   spawnedObjects: []
 --- !u!114 &1001482113
 MonoBehaviour:
@@ -2526,6 +2529,7 @@ MonoBehaviour:
   player: {fileID: 237946415}
   bonusGenerator: {fileID: 1001482113}
   coinsGenerator: {fileID: 1001482115}
+  zonesGenerator: {fileID: 1001482116}
   spawnedObjects: []
 --- !u!114 &1001482115
 MonoBehaviour:
@@ -2540,6 +2544,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 5704309718087043169, guid: 9d88c3934f7c73249b6f185cb5fdcdaa, type: 3}
+--- !u!114 &1001482116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001482108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9b26dd4d727df499938382b3e1a55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zones:
+  - {fileID: 11400000, guid: e7a9bf400255ab04a81173a47a61f67f, type: 2}
+  - {fileID: 11400000, guid: 1b3ee6191032d6744a85b616c74556dc, type: 2}
+  - {fileID: 11400000, guid: ae9798aa2e8242c43baa6de728fbd67f, type: 2}
 --- !u!1 &1043567006
 GameObject:
   m_ObjectHideFlags: 0
