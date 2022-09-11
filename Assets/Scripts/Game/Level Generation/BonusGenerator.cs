@@ -16,6 +16,10 @@ namespace InGame.Level.Generation
             nextSpawnBonusDepth = generator.player.Depth;
             CalculateNextDepth();
         }
+        public void Reset()
+        {
+            nextSpawnBonusDepth = generator.player.Depth;
+        }
         public void TrySpawnBonus(float lastSpawnedDepth)
         {
             if (generator.player.Depth >= nextSpawnBonusDepth)

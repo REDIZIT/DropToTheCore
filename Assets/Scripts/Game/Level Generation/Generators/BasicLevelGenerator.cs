@@ -94,6 +94,8 @@ namespace InGame.Level.Generation
             {
                 lastSpawnedDepth = -checkpoint.transform.position.y + 40;
             }
+
+            bonusGenerator.Reset();
         }
         public void ClearSpawnedObjects()
         {

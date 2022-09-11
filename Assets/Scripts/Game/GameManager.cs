@@ -43,7 +43,7 @@ namespace InGame.Game
 
         [Header("Ads")]
         public Button watchAdBtn;
-        public Button restartBtn;
+        public Button restartBtn, upgradesBtn;
 
         [Header("Other")]
         public float depth;
@@ -91,6 +91,9 @@ namespace InGame.Game
         {
             depth = -player.transform.position.y;
             depthText.text = new KilometersString(depth);
+
+            upgradesBtn.interactable = restartBtn.interactable;
+            upgradesBtn.gameObject.SetActive(restartBtn.gameObject.activeSelf);
 
             if (!isAdWatchedInRun)
             {
