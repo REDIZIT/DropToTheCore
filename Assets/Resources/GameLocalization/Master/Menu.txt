@@ -11,3 +11,5 @@ Gravity power|Gravity power|Сила гравитации|Puissance de gravité|
 Gravity power description|The lower the gravity, the slower the fall|Чем меньше сила гравитации, тем медленнее падение|Plus la gravité est basse, plus la chute est lente|Cuanto menor es la gravedad, más lenta es la caída|Più bassa è la gravità, più lenta è la caduta
 Jump power|Jump power|Сила прыжка|Puissance de saut|Fuerza de salto|Potenza di salto
 Jump power description|The lower the jump force, the easier it is to pass difficult elements|Чем меньше сила прыжка, тем проще проходить сложные элементы|Plus la force de saut est faible, plus il est facile de passer les éléments difficiles|Cuanto menor sea la fuerza del salto, más fácil será pasar elementos difíciles|Più bassa è la forza di salto, più facile è superare elementi difficili
+Shield level|Shield duration|Длительность щита|Durée du bouclier|Duración del escudo|Durata dello scudo
+Shield level description|The longer the shield lasts, the rarer it is|Чем дольше работает щит, тем реже он встречается|Plus le bouclier dure longtemps, plus il est rare|Cuanto más dura el escudo, más raro es.|Più a lungo dura lo scudo, più è raro
