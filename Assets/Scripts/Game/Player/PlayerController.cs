@@ -1,8 +1,10 @@
+using InGame.Analytics;
 using InGame.Game;
 using InGame.Secrets;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace InGame
 {
@@ -33,6 +35,14 @@ namespace InGame
 
         [HideInInspector] public new Rigidbody2D rigidbody;
 
+        private GameAnalytics analytics;
+
+
+        [Inject]
+        private void Construct(GameAnalytics analytics)
+        {
+            this.analytics = analytics;
+        }
         private void Awake()
         {
             instance = this;
@@ -120,8 +130,9 @@ namespace InGame
                 rigidbody.isKinematic = true;
                 rigidbody.velocity = Vector2.zero;
                 spriteRenderer.enabled = false;
-
                 GameManager.instance.DeadActions();
+
+                analytics.SendPlayerDeath((int)Depth);
             }
         }
     }
