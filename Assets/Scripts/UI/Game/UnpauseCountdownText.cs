@@ -4,7 +4,6 @@ using UnityEngine.UI;
 namespace InGame.UI.Game
 {
 	[RequireComponent(typeof(Text), typeof(CanvasGroup))]
-    [ExecuteInEditMode]
 	public class UnpauseCountdownText : MonoBehaviour
 	{
         public bool IsCounted => timeLeft <= 0;

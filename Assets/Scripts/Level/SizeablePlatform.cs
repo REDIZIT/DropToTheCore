@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace InGame.Level
 {
-    [ExecuteInEditMode]
     public class SizeablePlatform : MonoBehaviour
     {
         public Vector2 size = new Vector2(-1, -1);

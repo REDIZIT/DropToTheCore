@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace InGame.Level
 {
-    [ExecuteInEditMode]
     public class Laser : MonoBehaviour
     {
         [SerializeField] private SizeablePlatform beam, beamSemiAlpha;
