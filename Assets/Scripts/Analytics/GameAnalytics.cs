@@ -1,10 +1,13 @@
 using UnityEngine;
 using GameAnalyticsSDK;
+using InGame.SceneLoading;
+using InGame.Level.Generation;
 
 namespace InGame.Analytics
 {
     public class CoreAnalytics
     {
+
         public CoreAnalytics()
         {
             Debug.Log("Start GameAnalyics init");
@@ -12,9 +15,10 @@ namespace InGame.Analytics
         }
         public void SendPlayerDeath(int depth)
         {
-            Debug.Log("Send player death event");
-            GameAnalytics.NewDesignEvent("Player death", depth);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "test");
+            int distanceBetweenCheckpoints = CheckpointLevelGenerator.CHECKPOINTS_DISTANCE;
+            int roundedDepth = Mathf.FloorToInt(depth / distanceBetweenCheckpoints) * distanceBetweenCheckpoints;
+
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, SceneLoader.GameType.ToString(), roundedDepth + "m");
         }
     }
 }

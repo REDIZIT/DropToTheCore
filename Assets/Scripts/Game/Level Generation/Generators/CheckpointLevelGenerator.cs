@@ -17,7 +17,7 @@ namespace InGame.Level.Generation
         private bool isEndReached;
         private float maxDepth = 1e+10F;
 
-        public const float CHECKPOINTS_DISTANCE = 500;
+        public const int CHECKPOINTS_DISTANCE = 500;
 
 
         private void Awake()
