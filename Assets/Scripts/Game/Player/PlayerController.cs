@@ -35,11 +35,11 @@ namespace InGame
 
         [HideInInspector] public new Rigidbody2D rigidbody;
 
-        private GameAnalytics analytics;
+        private CoreAnalytics analytics;
 
 
         [Inject]
-        private void Construct(GameAnalytics analytics)
+        private void Construct(CoreAnalytics analytics)
         {
             this.analytics = analytics;
         }
