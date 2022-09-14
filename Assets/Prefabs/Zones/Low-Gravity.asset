@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Low-Gravity
   m_EditorClassIdentifier: 
   prefab: {fileID: 1709662377414836950, guid: 199b46480acbe9c42be8e4bb7a73a821, type: 3}
-  chance: 1
+  chance: 4

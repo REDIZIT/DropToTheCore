@@ -12,10 +12,6 @@ namespace InGame.Level
         public float beamWidth;
 
 
-        private void OnValidate()
-        {
-            Update();
-        }
         private void Update()
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -transform.right);

@@ -45,6 +45,8 @@ namespace InGame.Level
 
             if (size.x < 0 || size.y < 0) ImportSize();
 
+            ClampSize();
+
             if (spriteRenderer != null) spriteRenderer.size = size;
             if (boxCollider != null) boxCollider.size = size;
         }
@@ -58,6 +60,11 @@ namespace InGame.Level
         private void ImportSize()
         {
             size = spriteRenderer.size;
+        }
+        private void ClampSize()
+        {
+            if (float.IsNaN(size.x)) size.x = 100;
+            if (float.IsNaN(size.y)) size.y = 100;
         }
 
         public static bool IsPrefab(GameObject target, bool useNewWay = false)

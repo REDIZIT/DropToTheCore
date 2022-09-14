@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: High-Gravity
   m_EditorClassIdentifier: 
   prefab: {fileID: 5483815215497233430, guid: 4322100c1c5a5f9479e84efd8c2df5c7, type: 3}
-  chance: 1
+  chance: 10
