@@ -10,7 +10,7 @@ namespace InGame.DI
         {
             Debug.Log("Project installation started");
 
-            Container.Bind<CoreAnalytics>().AsSingle();
+            Container.Bind<CoreAnalytics>().AsSingle().NonLazy();
 
             Debug.Log("Project installed");
         }

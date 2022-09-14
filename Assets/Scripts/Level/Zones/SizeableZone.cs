@@ -12,7 +12,7 @@ namespace InGame.Level
         public Transform mask;
         public ParticleSystem particles;
 
-        private void OnValidate()
+        private void Start()
         {
             Rebuild();
         }
