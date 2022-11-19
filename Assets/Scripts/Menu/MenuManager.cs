@@ -1,6 +1,5 @@
 using Assets.SimpleLocalization;
 using InGame.Audio;
-using InGame.GooglePlay;
 using InGame.Secrets;
 using InGame.Settings;
 using InGame.UI.Custom;
@@ -28,20 +27,20 @@ namespace InGame.Menu
             Application.targetFrameRate = 120;
 
             LoadSettings();
-            GooglePlayManager.Initialize();
             CheatEngine.Initialize();
         }
 
 
         public void OnMusicVolumeDrag()
         {
-            AudioManager.asource.volume = musicVolumeSlider.value;
+            AudioManager.asource.volume = musicVolumeSlider.value / 10f;
             SettingsManager.Settings.MusicVolume = musicVolumeSlider.value;
             SettingsManager.Save();
         }
         public void ShowAchievements()
         {
-            GooglePlayManager.ShowAchievements();
+            Debug.Log("Ignored. ShowAchievements");
+            //GooglePlayManager.ShowAchievements();
         }
         public void OnLanguageBtnClick(string language)
         {
@@ -54,11 +53,12 @@ namespace InGame.Menu
 
         public void OpenSavesUI()
         {
-            GoogleCloud.ShowSavesUI((status, data) =>
-            {
-                if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success && data.Length > 0)
-                    SecretsManager.ImportCloudSave(data);
-            }, () => Debug.Log("Save data (do nothing"));
+            Debug.Log("Ignored. GoogleCloud.ShowSavesUI");
+            //GoogleCloud.ShowSavesUI((status, data) =>
+            //{
+            //    if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success && data.Length > 0)
+            //        SecretsManager.ImportCloudSave(data);
+            //}, () => Debug.Log("Save data (do nothing"));
         }
 
 
@@ -72,7 +72,7 @@ namespace InGame.Menu
 
 
             musicVolumeSlider.value = SettingsManager.Settings.MusicVolume;
-            AudioManager.asource.volume = SettingsManager.Settings.MusicVolume;
+            AudioManager.asource.volume = SettingsManager.Settings.MusicVolume / 10f;
 
 
 

@@ -1,4 +1,3 @@
-using InGame.GooglePlay;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text;
@@ -104,30 +103,30 @@ namespace InGame.Secrets
 
         public static void ImportCloudSave(byte[] data)
         {
-            Debug.Log("Importing cloud save");
-            File.WriteAllText(filepath, Encoding.UTF8.GetString(data));
+            Debug.Log("Ignored. Importing cloud save");
+            //File.WriteAllText(filepath, Encoding.UTF8.GetString(data));
         }
         public static void PullCloudSave()
         {
-            if (File.Exists(filepath)) return;
+            //if (File.Exists(filepath)) return;
 
-            Debug.Log("Pulling from Google Cloud default save");
-            GoogleCloud.ReadData(GoogleCloud.DEFAULT_SAVE_NAME, (status, data) =>
-            {
-                Debug.Log("Pull result is " + status);
-                if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success)
-                {
-                    File.WriteAllBytes(filepath, data);
-                    Load();
+            Debug.Log("Ignored. Pulling from Google Cloud default save");
+            //GoogleCloud.ReadData(GoogleCloud.DEFAULT_SAVE_NAME, (status, data) =>
+            //{
+            //    Debug.Log("Pull result is " + status);
+            //    if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success)
+            //    {
+            //        File.WriteAllBytes(filepath, data);
+            //        Load();
 
-                    GlobalEvents.onGoogleCloudImportSettings?.Invoke();
-                }
-            });
+            //        GlobalEvents.onGoogleCloudImportSettings?.Invoke();
+            //    }
+            //});
         }
         public static void UploadCloudSave(byte[] data)
         {
-            Debug.Log("Uploading cloud save");
-            GoogleCloud.WriteData(data);
+            Debug.Log("Ignored. Uploading cloud save");
+            //GoogleCloud.WriteData(data);
         }
     }
 }

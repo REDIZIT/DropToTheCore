@@ -1,5 +1,4 @@
 using InGame.Game;
-using InGame.GooglePlay;
 using System.Collections;
 using UnityEngine;
 
@@ -20,8 +19,6 @@ namespace InGame.Level
             Rigidbody2D rig = player.GetComponent<Rigidbody2D>();
             player.canMove = false;
             rig.gravityScale = 0;
-
-            GooglePlayManager.GiveComingSoonAchievement();
 
 
             while (rig.drag <= 8f)

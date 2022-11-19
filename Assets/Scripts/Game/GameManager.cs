@@ -1,5 +1,4 @@
 using InGame.Camera;
-using InGame.GooglePlay;
 using InGame.Level;
 using InGame.Level.Generation;
 using InGame.SceneLoading;
@@ -94,16 +93,6 @@ namespace InGame.Game
 
             upgradesBtn.interactable = restartBtn.interactable;
             upgradesBtn.gameObject.SetActive(restartBtn.gameObject.activeSelf);
-
-            if (!isAdWatchedInRun)
-            {
-                GooglePlayManager.ReportCurrentRunDepth(depth - startDepth);
-            }
-
-            if (depth <= -1000)
-            {
-                GooglePlayManager.GiveHeight1kmAchievement();
-            }
 
             if (SettingsManager.Settings.enableFingerPause && Input.touches.Length >= 2)
             {
@@ -245,9 +234,11 @@ namespace InGame.Game
             else
             {
                 restartBtn.interactable = true;
-                watchAdBtn.gameObject.SetActive(false);
+                //watchAdBtn.gameObject.SetActive(false);
             }
 
+            // Reward (revive) video disabled due to Yandex SDK not imported
+            watchAdBtn.gameObject.SetActive(false);
 
             restartBtn.gameObject.SetActive(canRetry);
         }

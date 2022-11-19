@@ -1,4 +1,3 @@
-using InGame.GooglePlay;
 using InGame.SceneLoading;
 using InGame.Settings;
 using System.Collections;
