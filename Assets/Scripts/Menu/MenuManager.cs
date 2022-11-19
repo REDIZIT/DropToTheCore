@@ -34,6 +34,7 @@ namespace InGame.Menu
         public void OnMusicVolumeDrag()
         {
             AudioManager.asource.volume = musicVolumeSlider.value / 10f;
+            Debug.Log("Set volume from drag to " + AudioManager.asource.volume);
             SettingsManager.Settings.MusicVolume = musicVolumeSlider.value;
             SettingsManager.Save();
         }
@@ -71,8 +72,10 @@ namespace InGame.Menu
 
 
 
+            Debug.Log("Set slider value from settings to " + SettingsManager.Settings.MusicVolume);
             musicVolumeSlider.value = SettingsManager.Settings.MusicVolume;
             AudioManager.asource.volume = SettingsManager.Settings.MusicVolume / 10f;
+            Debug.Log("Set volume from settings to " + AudioManager.asource.volume);
 
 
 

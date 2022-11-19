@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Bb]uildWeb
+BuildWeb.zip
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta

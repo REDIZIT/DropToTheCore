@@ -1,4 +1,3 @@
-using InGame.Camera;
 using InGame.Level;
 using InGame.Level.Generation;
 using InGame.SceneLoading;
@@ -8,16 +7,16 @@ using InGame.UI;
 using InGame.UI.Game;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Advertisements;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 namespace InGame.Game
 {
-    public class GameManager : MonoBehaviour, IUnityAdsListener
+    public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
 
@@ -69,6 +68,7 @@ namespace InGame.Game
         private void Construct(CameraController camera)
         {
             this.camera = camera;
+           
         }
         private void Awake()
         {
@@ -82,8 +82,7 @@ namespace InGame.Game
 
             startDepth = depth;
 
-
-            Advertisement.Initialize("3872551", false);
+            YandexGame.CloseVideoEvent += OnRewardedClosed;
         }
 
         private void Update()
@@ -95,14 +94,6 @@ namespace InGame.Game
             upgradesBtn.gameObject.SetActive(restartBtn.gameObject.activeSelf);
 
             if (SettingsManager.Settings.enableFingerPause && Input.touches.Length >= 2)
-            {
-                Pause();
-            }
-        }
-
-        private void OnApplicationFocus(bool focus)
-        {
-            if (focus == false)
             {
                 Pause();
             }
@@ -212,8 +203,6 @@ namespace InGame.Game
             depthRecordText.text = new KilometersString(SecretsManager.Secrets.Records.GetRecord(SceneLoader.GameType));
 
 
-
-
             if (SecretsManager.Secrets.Records.IsRecord(SceneLoader.GameType, depth))
             {
                 newRecordText.SetActive(true);
@@ -226,68 +215,34 @@ namespace InGame.Game
                 newRecordText.SetActive(false);
             }
 
-            
-            if (!isAdWatchedInRun && Advertisement.IsReady() && canRetry)
+
+            if (Random.value <= 0.5f)
             {
-                StartCoroutine(IEAdButtonPresent());
+                YandexGame.FullscreenShow();
+            }
+
+            if (!isAdWatchedInRun && YandexGame.IsAdReady && canRetry)
+            {
+                watchAdBtn.gameObject.SetActive(true);
             }
             else
             {
-                restartBtn.interactable = true;
-                //watchAdBtn.gameObject.SetActive(false);
+                watchAdBtn.gameObject.SetActive(false);
             }
-
-            // Reward (revive) video disabled due to Yandex SDK not imported
-            watchAdBtn.gameObject.SetActive(false);
 
             restartBtn.gameObject.SetActive(canRetry);
         }
 
         public void WatchAd()
         {
-            if (Advertisement.IsReady())
-            {
-                ShowOptions op = new ShowOptions()
-                {
-                    resultCallback = (r) =>
-                    {
-                        Debug.Log("Ad result is " + r);
-                        isAdWatchedInRun = true;
-                        Revive(true);
-                    }
-                };
-                Advertisement.Show("rewardedVideo", op);
-            }
-        }
-
-        private IEnumerator IEAdButtonPresent()
-        {
-            restartBtn.interactable = false;
-            watchAdBtn.gameObject.SetActive(true);
-
-            yield return new WaitForSeconds(3);
-
-            restartBtn.interactable = true;
+            YandexGame.RewVideoShow(0);
         }
 
 
-
-
-        public void OnUnityAdsReady(string placementId) { }
-        public void OnUnityAdsDidError(string message) { Debug.LogError("Unity ad error: " + message); }
-
-        public void OnUnityAdsDidStart(string placementId) { }
-
-        public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+        private void OnRewardedClosed()
         {
-            if (showResult == ShowResult.Finished)
-            {
-                UnityMainThreadDispatcher.Instance().Enqueue(() =>
-                {
-                    isAdWatchedInRun = true;
-                    Revive(true);
-                });
-            }
+            isAdWatchedInRun = true;
+            Revive(true);
         }
     }
 }

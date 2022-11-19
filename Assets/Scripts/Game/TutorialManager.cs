@@ -63,7 +63,7 @@ namespace InGame.Tutorial
             player.canMove = false;
             backgroundDarkner.enabled = true;
 
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(0.5f);
             yield return new WaitUntil(() => Input.GetMouseButton(0));
 
             Time.timeScale = 1;

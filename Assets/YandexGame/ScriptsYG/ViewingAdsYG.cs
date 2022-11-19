@@ -5,7 +5,7 @@ namespace YG
 {
     public class ViewingAdsYG : MonoBehaviour
     {
-        public enum PauseType { AudioPause, TimeScalePause, All };
+        public enum PauseType { AudioPause, TimeScalePause, All, None };
         [Tooltip("Данный скрипт будет ставить звук или верменную шкалу на паузу при просмотре рекламы взависимости от выбранной настройки PauseType.\n AudioPause - Ставить звук на паузу.\n TimeScalePause - Останавливать время.\n All - Ставить на паузу и звук и время.")]
         public PauseType pauseType;
 

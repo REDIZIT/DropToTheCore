@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 
-namespace InGame.Camera
+namespace InGame
 {
     public class CameraController : MonoBehaviour, IDisposable
     {
+        public float ScreenWidth => cam.pixelRect.width;
+
         [SerializeField] private PlayerController player;
         [SerializeField] private float offset = -12;
 
@@ -15,6 +17,7 @@ namespace InGame.Camera
 
         private float prevJumpY;
         private float flatEdgeY = float.MinValue;
+        private Camera cam;
 
         /// <summary>Player velocity camera offset factor (than more, then less effect)</summary>
         private const float VELOCITY_FACTOR = 50;
@@ -25,6 +28,7 @@ namespace InGame.Camera
         private void Awake()
         {
             player.onJump += OnPlayerJump;
+            cam = GetComponent<Camera>();
         }
         private void Update()
         {

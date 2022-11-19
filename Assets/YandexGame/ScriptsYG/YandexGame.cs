@@ -11,6 +11,8 @@ namespace YG
 {
     public class YandexGame : MonoBehaviour
     {
+        private static YandexGame instance;
+
         public InfoYG infoYG;
         [Space(10)]
         public UnityEvent ResolvedAuthorization;
@@ -50,6 +52,10 @@ namespace YG
             get => _photoSize;
             set => _photoSize = value;
         }
+        public static bool IsAdReady
+        {
+            get => !nowFullAd && !nowVideoAd && timerShowAd >= instance.infoYG.fullscreenAdInterval + 1;
+        }
 
         static bool _SDKEnabled;
         static bool _startGame;
@@ -73,6 +79,7 @@ namespace YG
         #region Methods
         private void Awake()
         {
+            instance = this;
             transform.SetParent(null);
             gameObject.name = "YandexGame";
 
@@ -346,8 +353,7 @@ namespace YG
 
         public void _FullscreenShow()
         {
-            if (!nowFullAd && !nowVideoAd &&
-                timerShowAd >= infoYG.fullscreenAdInterval + 1)
+            if (IsAdReady)
             {
                 timerShowAd = 0;
 #if !UNITY_EDITOR
@@ -362,9 +368,11 @@ namespace YG
         }
 
         static Action onFullAdShow;
-        public static void FullscreenShow()
+        public static bool FullscreenShow()
         {
+            bool canBeShown = IsAdReady;
             onFullAdShow?.Invoke();
+            return canBeShown;
         }
 
 #if UNITY_EDITOR

@@ -36,12 +36,14 @@ namespace InGame
         [HideInInspector] public new Rigidbody2D rigidbody;
 
         private CoreAnalytics analytics;
+        private CameraController cam;
 
 
         [Inject]
-        private void Construct(CoreAnalytics analytics)
+        private void Construct(CoreAnalytics analytics, CameraController cam)
         {
             this.analytics = analytics;
+            this.cam = cam;
         }
         private void Awake()
         {
@@ -70,7 +72,10 @@ namespace InGame
         {
             onJump?.Invoke();
 
-            float percents = Input.mousePosition.x / (float)Screen.width;
+            float blackBorderWidth = (Screen.width - cam.ScreenWidth) / 2f;
+            float clickX = Mathf.Clamp(Input.mousePosition.x - blackBorderWidth, 0, cam.ScreenWidth);
+
+            float percents = clickX / (float)cam.ScreenWidth;
             float normalized = percents - 0.5f;
 
             rigidbody.velocity = (1 / 60f) * jumpPower * Vector2.up;
