@@ -8,11 +8,7 @@ namespace InGame.DI
     {
         public override void InstallBindings()
         {
-            Debug.Log("Project installation started");
-
             Container.Bind<CoreAnalytics>().AsSingle().NonLazy();
-
-            Debug.Log("Project installed");
         }
     }
 }

@@ -25,7 +25,10 @@ namespace InGame.UI.Custom
         private bool _isOn;
 
 
-
+        private void Awake()
+        {
+            //GlobalEvents.onSaveDataLoaded += Start;
+        }
         private void Start()
         {
             SetIsOnWithoutAnimation(IsOn);

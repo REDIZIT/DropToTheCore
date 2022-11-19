@@ -44,7 +44,7 @@ namespace InGame.UI
         }
         private void OnValidate()
         {
-            Refresh();
+            //Refresh();
         }
 
 

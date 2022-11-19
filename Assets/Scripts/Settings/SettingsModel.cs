@@ -1,18 +1,14 @@
 namespace InGame.Settings
 {
+    [System.Serializable]
     public class SettingsModel
     {
-        public float MusicVolume { get; set; } = 0.8f;
-        public bool IsBloomEnabled { get; set; } = true;
-        public bool UseHighRenderScale { get; set; } = true;
+        public float MusicVolume = 0.8f;
+        public bool IsBloomEnabled = true;
+        public bool UseHighRenderScale  = true;
         public bool enableFingerPause = true;
 
-        public string Language { get; set; } = "Not set";
-
-
-        public bool IsTutorialPassed { get; set; } = false;
-
-
+        public string Language = "Not set";
 
 
         public void SetLowestPreset()

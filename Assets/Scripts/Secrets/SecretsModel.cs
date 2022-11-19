@@ -2,19 +2,21 @@ using InGame.Tutorial;
 
 namespace InGame.Secrets
 {
+    [System.Serializable]
     public class SecretsModel
     {
-        public RecordsModel Records { get; } = new RecordsModel();
+        public RecordsModel Records = new RecordsModel();
 
 
-        public int Coins { get; set; } = 0;
+        public int Coins = 0;
 
-        public int GravityPower { get; set; } = 0;
-        public int JumpPower { get; set; } = 0;
-        public int ShieldLevel { get; set; } = 0;
+        public int GravityPower = 0;
+        public int JumpPower = 0;
+        public int ShieldLevel = 0;
+        public bool IsTutorialPassed = false;
 
 
 
-        public TutorialPager.Page PassedTutorials { get; set; } = TutorialPager.Page.None;
+        public TutorialPager.Page PassedTutorials = TutorialPager.Page.None;
     }
 }

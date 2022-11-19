@@ -1,5 +1,5 @@
 using InGame.SceneLoading;
-using InGame.Settings;
+using InGame.Secrets;
 using UnityEngine;
 
 namespace InGame.Menu
@@ -10,7 +10,7 @@ namespace InGame.Menu
         
         public void OnClick(string animationName)
         {
-            if (!SettingsManager.Settings.IsTutorialPassed)
+            if (!SecretsManager.Secrets.IsTutorialPassed)
             {
                 SceneLoader.LoadTutorial();
             }

@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 namespace YG
 {
@@ -88,6 +89,20 @@ namespace YG
 
             onRewAdShow = null;
             onRewAdShow += _RewardedShow;
+
+            
+        }
+        private void OnEnable()
+        {
+            IngameDebugConsole.DebugLogConsole.AddCommand("data", "Show save data", ShowSaveData);
+        }
+        private void OnDisable()
+        {
+            IngameDebugConsole.DebugLogConsole.RemoveCommand("data");
+        }
+        private void ShowSaveData()
+        {
+            Debug.Log(JsonConvert.SerializeObject(savesData, Formatting.Indented));
         }
 
         [DllImport("__Internal")]
@@ -333,8 +348,10 @@ namespace YG
 
         public static void SaveCloud(bool flush)
         {
-            Message("Load YG");
+            Message("Save YG");
             SaveYG(JsonUtility.ToJson(savesData), flush);
+
+            Debug.Log("Save YG, data = " + JsonConvert.SerializeObject(savesData, Formatting.Indented));
         }
 
         [DllImport("__Internal")]
@@ -344,6 +361,8 @@ namespace YG
         {
             Message("Load YG");
             LoadYG();
+
+            Debug.Log("Load YG, data = " + JsonConvert.SerializeObject(savesData, Formatting.Indented));
         }
         #endregion Save end Load Cloud
 
@@ -826,15 +845,22 @@ namespace YG
         #region Loading progress
         public void SetLoadSaves(string data)
         {
+            Debug.Log("SetLoadSaved with rawdata = " + data);
+
             data = data.Remove(0, 2);
             data = data.Remove(data.Length - 2, 2);
             data = data.Replace(@"\", "");
 
+            Debug.Log("Clean data = " + data);
+
             savesData = JsonUtility.FromJson<SavesYG>(data);
             Message("Load YG Complete");
 
+            Debug.Log("SavesData = " + JsonConvert.SerializeObject(savesData, Formatting.Indented));
+
             _SDKEnabled = true;
             GetDataEvent?.Invoke();
+            GlobalEvents.onSaveDataLoaded?.Invoke();
 
             if (infoYG.LocalizationEnable && infoYG.callingLanguageCheck == InfoYG.CallingLanguageCheck.EveryGameLaunch)
                 _LanguageRequest();

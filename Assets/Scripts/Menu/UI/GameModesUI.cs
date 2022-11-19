@@ -17,7 +17,7 @@ namespace InGame.Menu
 
         private void Awake()
         {
-            GlobalEvents.onGoogleCloudImportSettings += Start;
+            GlobalEvents.onSaveDataLoaded += Start;
         }
         private void Start()
         {

@@ -11,6 +11,10 @@ namespace InGame.Menu
         public UpgradeSlider gravitySlider, jumpSlider, shieldSlider;
 
 
+        private void Awake()
+        {
+            GlobalEvents.onSaveDataLoaded += Start;
+        }
         private void Start()
         {
             gravitySlider.SetValueWithoutNotify(SecretsManager.Secrets.GravityPower);

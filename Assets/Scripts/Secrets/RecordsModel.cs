@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace InGame.Secrets
 {
+    [System.Serializable]
     public class RecordsModel
     {
-        [JsonProperty]
-        private Record classicDepth, infinityDepth, hardcoreInfinityDepth;
+        public Record classicDepth, infinityDepth, hardcoreInfinityDepth;
 
 
 
@@ -35,6 +35,7 @@ namespace InGame.Secrets
             }
         }
 
+        [System.Serializable]
         public struct Record
         {
             public int value;

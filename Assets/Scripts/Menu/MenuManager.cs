@@ -26,6 +26,7 @@ namespace InGame.Menu
         {
             Application.targetFrameRate = 120;
 
+            GlobalEvents.onSaveDataLoaded += LoadSettings;
             LoadSettings();
             CheatEngine.Initialize();
         }
@@ -72,10 +73,8 @@ namespace InGame.Menu
 
 
 
-            Debug.Log("Set slider value from settings to " + SettingsManager.Settings.MusicVolume);
             musicVolumeSlider.value = SettingsManager.Settings.MusicVolume;
             AudioManager.asource.volume = SettingsManager.Settings.MusicVolume / 10f;
-            Debug.Log("Set volume from settings to " + AudioManager.asource.volume);
 
 
 

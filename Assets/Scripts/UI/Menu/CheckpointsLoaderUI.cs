@@ -20,7 +20,10 @@ namespace InGame.Menu
         public RectTransform loadingScreenMask;
         public Animator loadingScreenAnimator;
 
-
+        private void Awake()
+        {
+            GlobalEvents.onSaveDataLoaded += Start;
+        }
         private void Start()
         {
             float distance = CheckpointLevelGenerator.CHECKPOINTS_DISTANCE;

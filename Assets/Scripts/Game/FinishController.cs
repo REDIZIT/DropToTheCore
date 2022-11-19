@@ -1,3 +1,4 @@
+using InGame.Secrets;
 using InGame.Settings;
 using System.Collections;
 using UnityEngine;
@@ -26,8 +27,8 @@ namespace InGame.Game
             finishScreen.Play(1);
 
 
-            SettingsManager.Settings.IsTutorialPassed = true;
-            SettingsManager.Save();
+            SecretsManager.Secrets.IsTutorialPassed = true;
+            SecretsManager.Save();
 
             while (rig.drag <= 8f)
             {
