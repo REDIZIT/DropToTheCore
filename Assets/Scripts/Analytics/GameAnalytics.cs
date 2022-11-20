@@ -10,7 +10,6 @@ namespace InGame.Analytics
 
         public CoreAnalytics()
         {
-            Debug.Log("Start GameAnalyics init");
             GameAnalytics.Initialize();
         }
         public void SendPlayerDeath(int depth)

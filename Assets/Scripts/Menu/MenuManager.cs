@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using YG;
 
 namespace InGame.Menu
 {
@@ -29,13 +30,17 @@ namespace InGame.Menu
             GlobalEvents.onSaveDataLoaded += LoadSettings;
             LoadSettings();
             CheatEngine.Initialize();
-        }
 
+            YandexGame.SwitchLangEvent += LocalizationManager.SwitchLanguage;
+        }
+        private void OnDestroy()
+        {
+            YandexGame.SwitchLangEvent -= LocalizationManager.SwitchLanguage;
+        }
 
         public void OnMusicVolumeDrag()
         {
             AudioManager.asource.volume = musicVolumeSlider.value / 10f;
-            Debug.Log("Set volume from drag to " + AudioManager.asource.volume);
             SettingsManager.Settings.MusicVolume = musicVolumeSlider.value;
             SettingsManager.Save();
         }
@@ -46,23 +51,8 @@ namespace InGame.Menu
         }
         public void OnLanguageBtnClick(string language)
         {
-            SettingsManager.Settings.Language = language;
-            SettingsManager.Save();
-            LocalizationManager.Language = language;
+            YandexGame.SwitchLanguage(language);
         }
-
-
-
-        public void OpenSavesUI()
-        {
-            Debug.Log("Ignored. GoogleCloud.ShowSavesUI");
-            //GoogleCloud.ShowSavesUI((status, data) =>
-            //{
-            //    if (status == GooglePlayGames.BasicApi.SavedGame.SavedGameRequestStatus.Success && data.Length > 0)
-            //        SecretsManager.ImportCloudSave(data);
-            //}, () => Debug.Log("Save data (do nothing"));
-        }
-
 
 
         private void LoadSettings()
@@ -106,14 +96,11 @@ namespace InGame.Menu
                 SettingsManager.Save();
             };
 
-
-
-
-            if(SettingsManager.Settings.Language == "Not set")
-            {
-                SettingsManager.Settings.Language = GetSupportedSystemLanguage();
-            }
-            LocalizationManager.Language = SettingsManager.Settings.Language;
+            //if(SettingsManager.Settings.Language == "Not set")
+            //{
+            //    SettingsManager.Settings.Language = GetSupportedSystemLanguage();
+            //}
+            //LocalizationManager.Language = SettingsManager.Settings.Language;
         }
         private string GetSupportedSystemLanguage()
         {

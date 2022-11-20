@@ -19,17 +19,19 @@ namespace Assets.SimpleLocalization
         public static readonly Dictionary<string, Dictionary<string, string>> Dictionary = new Dictionary<string, Dictionary<string, string>>();
         public static string folderPath = "GameLocalization/Master";
 
-        private static string _language = "English";
+        private static string _language = "en";
 
-		/// <summary>
-		/// Get or set language.
-		/// </summary>
-        public static string Language
+        /// <summary>
+        /// Get or set language.
+        /// </summary>
+        public static string Language => _language;
+
+        public static void SwitchLanguage(string lang)
         {
-            get { return _language; }
-            set { _language = value; LocalizationChanged(); }
+            Debug.Log("LocalizationManager change to: " + lang);
+            _language = lang;
+            LocalizationChanged?.Invoke();
         }
-
 		/// <summary>
 		/// Read localization spreadsheets.
 		/// </summary>

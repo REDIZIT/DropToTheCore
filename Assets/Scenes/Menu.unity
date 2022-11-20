@@ -906,7 +906,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: English
+          m_StringArgument: en
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &219483785
@@ -1580,7 +1580,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: French
+          m_StringArgument: fr
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &277158213
@@ -13496,7 +13496,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Spanish
+          m_StringArgument: es
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1379205122
@@ -14573,7 +14573,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Italian
+          m_StringArgument: it
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1531782335
@@ -16387,7 +16387,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588697365}
   m_HandleRect: {fileID: 1598679139}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19672,7 +19672,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Russian
+          m_StringArgument: ru
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2058241139

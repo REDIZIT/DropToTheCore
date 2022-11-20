@@ -1,4 +1,4 @@
-﻿Key|English|Russian|French|Spanish|Italian
+﻿Key|en|ru|fr|es|it
 Settings|Settings|Настройки|Réglages|Configuraciones|Impostazioni
 Audio|Audio|Звук|l'audio|Audio|Audio
 Graphics|Graphics|Графика|Graphique|Gráficos|Grafica

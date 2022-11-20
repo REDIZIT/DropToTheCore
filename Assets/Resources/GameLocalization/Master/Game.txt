@@ -1,4 +1,4 @@
-﻿Key|English|Russian|French|Spanish|Italian
+﻿Key|en|ru|fr|es|it
 NewRecord|New record!|Новый рекорд!|Nouvel enregistrement!|¡Nuevo record!|Nuovo record!
 Your depth|Your depth|Твоя глубина|Votre profondeur|Tu profundidad|La tua profondità
 Your best depth|Your best depth|Твоя лучшая глубина|Votre meilleure profondeur|Tu mejor profundidad|La tua migliore profondità

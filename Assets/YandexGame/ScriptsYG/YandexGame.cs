@@ -845,13 +845,11 @@ namespace YG
         #region Loading progress
         public void SetLoadSaves(string data)
         {
-            Debug.Log("SetLoadSaved with rawdata = " + data);
-
             data = data.Remove(0, 2);
             data = data.Remove(data.Length - 2, 2);
             data = data.Replace(@"\", "");
 
-            Debug.Log("Clean data = " + data);
+            Debug.Log("SetLoadSaved, data = " + data);
 
             savesData = JsonUtility.FromJson<SavesYG>(data);
             Message("Load YG Complete");

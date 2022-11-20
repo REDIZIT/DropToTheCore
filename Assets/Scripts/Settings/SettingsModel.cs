@@ -8,9 +8,6 @@ namespace InGame.Settings
         public bool UseHighRenderScale  = true;
         public bool enableFingerPause = true;
 
-        public string Language = "Not set";
-
-
         public void SetLowestPreset()
         {
             IsBloomEnabled = false;
