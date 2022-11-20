@@ -89,16 +89,16 @@ namespace YG
 
             onRewAdShow = null;
             onRewAdShow += _RewardedShow;
-
-            
         }
         private void OnEnable()
         {
             IngameDebugConsole.DebugLogConsole.AddCommand("data", "Show save data", ShowSaveData);
+            IngameDebugConsole.DebugLogConsole.AddCommand("reset", "Reset save data", ResetSaveCloud);
         }
         private void OnDisable()
         {
             IngameDebugConsole.DebugLogConsole.RemoveCommand("data");
+            IngameDebugConsole.DebugLogConsole.RemoveCommand("reset");
         }
         private void ShowSaveData()
         {

@@ -1,15 +1,15 @@
-Key|en|ru|fr|es|it
-Loading|Loading|Загрузка|Chargement|Cargando|Caricamento in corso
-MeterSymbol|m|м|m|m|m
-Checkpoints|Checkpoint|Чекпоинты|Checkpoint|Checkpoint|Checkpoint
-Infinite|Infinite|Бесконечный|Interminable|Interminable|Infinito
-Hard Infinity|Infinite hardcore|Бесконечный хардкор|Interminable hardcore|Interminable hardcore|Infinito hardcore
-Select game mode|Select game mode|Выбери игровой режим|Choisissez un mode de jeu|Elige un modo de juego|Scegli una modalità di gioco
-Upgrades|Upgrades|Улучшения|Améliorations|Mejoras|Miglioramenti
+Key|en|ru|fr|es|it|tk
+Loading|Loading|Загрузка|Chargement|Cargando|Caricamento in corso|Yükleniyor
+MeterSymbol|m|м|m|m|m|m
+Checkpoints|Checkpoint|Чекпоинты|Checkpoint|Checkpoint|Checkpoint|Kontrol noktası
+Infinite|Infinite|Бесконечный|Interminable|Interminable|Infinito|Sonsuz
+Hard Infinity|Infinite hardcore|Бесконечный хардкор|Interminable hardcore|Interminable hardcore|Infinito hardcore|Sonsuz hardcore
+Select game mode|Select game mode|Выбери игровой режим|Choisissez un mode de jeu|Elige un modo de juego|Scegli una modalità di gioco|Oyun modunu seçin
+Upgrades|Upgrades|Улучшения|Améliorations|Mejoras|Miglioramenti|Yükseltmeler
 
-Gravity power|Gravity power|Сила гравитации|Puissance de gravité|Poder de gravedad|Forza di gravità
-Gravity power description|The lower the gravity, the slower the fall|Чем меньше сила гравитации, тем медленнее падение|Plus la gravité est basse, plus la chute est lente|Cuanto menor es la gravedad, más lenta es la caída|Più bassa è la gravità, più lenta è la caduta
-Jump power|Jump power|Сила прыжка|Puissance de saut|Fuerza de salto|Potenza di salto
-Jump power description|The lower the jump force, the easier it is to pass difficult elements|Чем меньше сила прыжка, тем проще проходить сложные элементы|Plus la force de saut est faible, plus il est facile de passer les éléments difficiles|Cuanto menor sea la fuerza del salto, más fácil será pasar elementos difíciles|Più bassa è la forza di salto, più facile è superare elementi difficili
-Shield level|Shield duration|Длительность щита|Durée du bouclier|Duración del escudo|Durata dello scudo
-Shield level description|The longer the shield lasts, the rarer it is|Чем дольше работает щит, тем реже он встречается|Plus le bouclier dure longtemps, plus il est rare|Cuanto más dura el escudo, más raro es.|Più a lungo dura lo scudo, più è raro
+Gravity power|Gravity power|Сила гравитации|Puissance de gravité|Poder de gravedad|Forza di gravità|Yerçekimi gücü
+Gravity power description|The lower the gravity, the slower the fall|Чем меньше сила гравитации, тем медленнее падение|Plus la gravité est basse, plus la chute est lente|Cuanto menor es la gravedad, más lenta es la caída|Più bassa è la gravità, più lenta è la caduta|Yerçekimi ne kadar düşükse, düşüş o kadar yavaş olur
+Jump power|Jump power|Сила прыжка|Puissance de saut|Fuerza de salto|Potenza di salto|Zıplama gücü
+Jump power description|The lower the jump force, the easier it is to pass difficult elements|Чем меньше сила прыжка, тем проще проходить сложные элементы|Plus la force de saut est faible, plus il est facile de passer les éléments difficiles|Cuanto menor sea la fuerza del salto, más fácil será pasar elementos difíciles|Più bassa è la forza di salto, più facile è superare elementi difficili|Sıçrama kuvveti ne kadar düşük olursa, zor unsurları geçmek o kadar kolay olur
+Shield level|Shield duration|Длительность щита|Durée du bouclier|Duración del escudo|Durata dello scudo|Kalkan süresi
+Shield level description|The longer the shield lasts, the rarer it is|Чем дольше работает щит, тем реже он встречается|Plus le bouclier dure longtemps, plus il est rare|Cuanto más dura el escudo, más raro es.|Più a lungo dura lo scudo, più è raro|Kalkan ne kadar uzun sürerse, o kadar nadir olur

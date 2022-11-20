@@ -1,9 +1,9 @@
-﻿Key|en|ru|fr|es|it
-Settings|Settings|Настройки|Réglages|Configuraciones|Impostazioni
-Audio|Audio|Звук|l'audio|Audio|Audio
-Graphics|Graphics|Графика|Graphique|Gráficos|Grafica
-Bloom|Bloom|Свечение|Floraison|Florecer|Fioritura
-RenderHighQuality|High render quality|Качественный рендер|Haute qualité de rendu|Alta calidad de renderizado|Elevata qualità di rendering
-Language|Language|Язык|Langue|Idioma|Linguaggio
-Developers|Developers|Разработчики|Les développeurs|Desarrolladores|Sviluppatori
-FingerPause|Finger pause\n<size=34>Pause game on second finger touch</size>|Пауза пальцем\n<size=34>Пауза по нажатии вторым пальцем</size>|Pause du doigt\n<size=34>Pause du deuxième doigt</size>|Pausa con el dedo\n<size=34>Pausar el segundo toque con el dedo</size>|Dito in pausa\n<size=34>Pausa secondo dito Tocca</size>
+﻿Key|en|ru|fr|es|it|tk
+Settings|Settings|Настройки|Réglages|Configuraciones|Impostazioni|Ayarlar
+Audio|Audio|Звук|l'audio|Audio|Audio|Ses
+Graphics|Graphics|Графика|Graphique|Gráficos|Grafica|Grafik
+Bloom|Bloom|Свечение|Floraison|Florecer|Fioritura|Çiçek açmak
+RenderHighQuality|High render quality|Качественный рендер|Haute qualité de rendu|Alta calidad de renderizado|Elevata qualità di rendering|Yüksek render kalitesi
+Language|Language|Язык|Langue|Idioma|Linguaggio|Dil
+Developers|Developers|Разработчики|Les développeurs|Desarrolladores|Sviluppatori|Geliştiriciler
+FingerPause|Finger pause\n<size=34>Pause game on second finger touch</size>|Пауза пальцем\n<size=34>Пауза по нажатии вторым пальцем</size>|Pause du doigt\n<size=34>Pause du deuxième doigt</size>|Pausa con el dedo\n<size=34>Pausar el segundo toque con el dedo</size>|Dito in pausa\n<size=34>Pausa secondo dito Tocca</size>|Parmak duraklatma\n<size=34>İkinci parmak dokunuşunda oyunu duraklat</size>

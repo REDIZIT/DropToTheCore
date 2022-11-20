@@ -1,5 +1,5 @@
-﻿Key|en|ru|fr|es|it
-SelectDepthToStart|Select depth\n<size=90>to start</size>|Выбери глубину\n<size=90>чтобы начать</size>|Sélectionnez la profondeur\n<size=90>pour commencer</size>|Seleccione la profundidad\n<size=90>para comenzar</size>|Seleziona la profondità\n<size=90>per iniziare</size>
-ClickToStart|< click to start >|< нажми чтобы начать >|< cliquez pour commencer >|< haga clic para comenzar >|< fare clic per iniziare >
-OtherCheckpoints|Other checkpoints|Другие чекпоинты|Autres points de contrôle|Otros puntos de control|Altri posti di blocco
-YourRecordIs|Your record is|Твой рекорд|Votre record est|Tu récord es|Il tuo record è
+﻿Key|en|ru|fr|es|it|tk
+SelectDepthToStart|Select depth\n<size=90>to start</size>|Выбери глубину\n<size=90>чтобы начать</size>|Sélectionnez la profondeur\n<size=90>pour commencer</size>|Seleccione la profundidad\n<size=90>para comenzar</size>|Seleziona la profondità\n<size=90>per iniziare</size>|Başlamak için\n<size=90>bir derinlik seçin</size>
+ClickToStart|< click to start >|< нажми чтобы начать >|< cliquez pour commencer >|< haga clic para comenzar >|< fare clic per iniziare >|< başlamak için tıklayın >
+OtherCheckpoints|Other checkpoints|Другие чекпоинты|Autres points de contrôle|Otros puntos de control|Altri posti di blocco|Diğer kontrol noktaları
+YourRecordIs|Your record is|Твой рекорд|Votre record est|Tu récord es|Il tuo record è|Senin rekorun 1

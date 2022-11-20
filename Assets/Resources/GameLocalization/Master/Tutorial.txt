@@ -1,9 +1,9 @@
-﻿Key|en|ru|fr|es|it
-TapToJumpUp|Tap on center to jump up!|Нажми в центр чтобы прыгнуть вверх!|Appuyez sur le centre pour sauter!|Toque en el centro para saltar!|Tocca il centro per saltare!
-TapToJumpSides|Tap sides to jump right or left!|Жми по сторонам чтобы прыгнуть влево или вправо!|Appuyez sur les côtés pour sauter à droite ou à gauche!|¡Toca los lados para saltar a la derecha oa la izquierda!|Tocca i lati per saltare a destra oa sinistra!
-Great!|Great!|Отлично!|Génial!|¡Excelente!|Grande!
-GoOn|Go on|Продолжай|Continue|Seguir|Vai avanti
+﻿Key|en|ru|fr|es|it|tk
+TapToJumpUp|Tap on center to jump up!|Нажми в центр чтобы прыгнуть вверх!|Appuyez sur le centre pour sauter!|Toque en el centro para saltar!|Tocca il centro per saltare!|Zıplamak için merkeze dokunun!
+TapToJumpSides|Tap sides to jump right or left!|Жми по сторонам чтобы прыгнуть влево или вправо!|Appuyez sur les côtés pour sauter à droite ou à gauche!|¡Toca los lados para saltar a la derecha oa la izquierda!|Tocca i lati per saltare a destra oa sinistra!|Sağa veya sola atlamak için taraflara dokunun!
+Great!|Great!|Отлично!|Génial!|¡Excelente!|Grande!|Harika!
+GoOn|Go on|Продолжай|Continue|Seguir|Vai avanti|Devam et
 
-TapToContinue|< tap to continue >|< нажми чтобы продолжить >|< appuyez pour continuer >|< toque para continuar >|<toccare per continuare>
-CoinTakenHeader|You just got a coin|Ты только что получил монету|Tu viens d'avoir une pièce|Solo tienes una moneda|Hai appena ricevuto una moneta
-CoinTakenDescription|Coins can be spent on improvements in the menu|Монеты можно тратить на улучшения в меню|Les pièces peuvent être dépensées pour des améliorations dans le menu|Las monedas se pueden gastar en mejoras en el menú.|Le monete possono essere spese per miglioramenti nel menu
+TapToContinue|< tap to continue >|< нажми чтобы продолжить >|< appuyez pour continuer >|< toque para continuar >|<toccare per continuare>|< devam etmek için dokunun >
+CoinTakenHeader|You just got a coin|Ты только что получил монету|Tu viens d'avoir une pièce|Solo tienes una moneda|Hai appena ricevuto una moneta|Az önce bozuk para aldın
+CoinTakenDescription|Coins can be spent on improvements in the menu|Монеты можно тратить на улучшения в меню|Les pièces peuvent être dépensées pour des améliorations dans le menu|Las monedas se pueden gastar en mejoras en el menú.|Le monete possono essere spese per miglioramenti nel menu|Madeni paralar, menüdeki iyileştirmeler için harcanabilir
