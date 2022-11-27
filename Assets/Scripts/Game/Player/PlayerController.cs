@@ -21,8 +21,8 @@ namespace InGame
         public TrailRenderer trail;
 
         public GameObject jumpEffectPrefab;
-        public AudioSource audioSource;
-        public AudioClip jumpAudioClip;
+        public AudioYB audioSource;
+        public string jumpAudioClipName;
 
         public ParticleSystem deathParticles;
         public SpriteRenderer spriteRenderer;
@@ -86,7 +86,7 @@ namespace InGame
             GameObject effect = Instantiate(jumpEffectPrefab);
             effect.transform.position = transform.position;
             Destroy(effect, 3);
-            audioSource.PlayOneShot(jumpAudioClip);
+            audioSource.PlayOneShot(jumpAudioClipName);
         }
 
         public void Revive()

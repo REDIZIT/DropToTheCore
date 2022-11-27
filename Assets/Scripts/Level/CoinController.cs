@@ -8,7 +8,7 @@ namespace InGame.Level
     {
         public Animator animator;
 
-        public AudioClip sound;
+        public string soundName;
 
         private bool isGot;
 
@@ -19,7 +19,7 @@ namespace InGame.Level
             {
                 isGot = true;
 
-                PlayerController.instance.audioSource.PlayOneShot(sound);
+                PlayerController.instance.audioSource.PlayOneShot(soundName);
 
                 animator.Play("CoinTake");
                 SecretsManager.Secrets.Coins++;

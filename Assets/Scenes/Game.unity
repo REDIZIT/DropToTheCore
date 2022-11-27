@@ -1466,6 +1466,7 @@ GameObject:
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
   - component: {fileID: 519420036}
+  - component: {fileID: 519420037}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1615,7 +1616,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
@@ -1710,6 +1711,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9207acb9d6a5ecd469bd1783408420fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &519420037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278e9ad29e5d61242b71fa76f653e6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &550966673
@@ -6158,6 +6171,10 @@ PrefabInstance:
     - target: {fileID: 1991714544909733447, guid: 7b31daeafbc7e164a9bf30f062881962, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 519420035}
+      objectReference: {fileID: 519420037}
+    - target: {fileID: 1991714544909733447, guid: 7b31daeafbc7e164a9bf30f062881962, type: 3}
+      propertyPath: jumpAudioClipName
+      value: Pop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b31daeafbc7e164a9bf30f062881962, type: 3}

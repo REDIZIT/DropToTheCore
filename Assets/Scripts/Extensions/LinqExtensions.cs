@@ -4,6 +4,10 @@ using System.Linq;
 
 public static class LinqExtensions
 {
+    public static T Random<T>(this IEnumerable<T> ls)
+    {
+        return ls.ElementAt(UnityEngine.Random.Range(0, ls.Count()));
+    }
     public static T Random<T>(this IEnumerable<T> ls, Func<T, float> weightFunc)
     {
         if (ls.Count() == 0) throw new Exception($"Unable to select weighted random element from empty IEnumerable<{typeof(T)}>");

@@ -151,6 +151,8 @@ namespace InGame.Game
 
         public void Pause()
         {
+            if (Time.timeScale == 0) return;
+
             Time.timeScale = 0;
             pauseScreen.gameObject.SetActive(true);
             pauseScreen.Play("ShowPauseScreen");
